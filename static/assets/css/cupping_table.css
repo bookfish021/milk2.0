@@ -1,0 +1,178 @@
+
+
+span{
+    text-align:center;
+}
+
+.test_title{
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+
+
+
+
+select{
+  background: transparent;
+  width: 150px;
+  height: 20px;
+  text-align:center;
+
+}
+
+option{
+  appearance:none;
+
+}
+.tname {
+  appearance:none;
+  color: gray;
+  height: 25px;
+  cursor: pointer;
+
+}
+
+select:hover {
+  
+  color: black;
+  cursor: pointer;
+}
+
+select option:hover{
+
+  appearance:none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  box-shadow: 0 0 10px 100px white inset;
+  background: #ffffff !important;
+
+  cursor: pointer;
+
+}
+
+select option:checked{
+  
+  color: black;
+
+}
+
+
+
+
+
+.score_display{
+
+  height:30px;
+  background-color: #fdf7eb;
+
+}
+
+
+
+.score{
+  
+  display: flex;
+  justify-content:space-between;
+
+  background-color: #fdf7eb;
+  width:132px;
+  
+
+}
+
+.score_show{
+
+  width: 50px;
+
+}
+
+
+
+
+.cupping{
+  height: 200px;
+  width:132px;
+  border-collapse: separate;
+  border-spacing: 0;
+  
+  text-align:center;
+  
+
+  margin: 15px;
+
+}
+
+.positive_comment{
+  width: 100px;
+  background-color: #fbf5df;
+  border-color: #ffffff;
+}
+
+.negative_comment{
+  width: 100px;
+  background-color: #f1f8fe;
+  border-color: #ffffff;
+}
+
+.defect_comment{
+  width: 100px;
+  background-color: #f1f8fe;
+  border-color: #ffffff;
+}
+
+
+.defect_detail{
+  font-weight: lighter;
+  color: gray;
+}
+
+
+th,td{
+
+    border: 1px solid #4b4a48;
+
+}
+
+
+#defect_select_div{
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content:center;
+
+}
+
+.defect_selet{
+
+  background: #ffffff;
+  border: 3px solid #ffffff;
+  border-radius: 25px;
+
+}
+
+.defect_selet:hover{
+  cursor: pointer;
+}
+
+
+
+.cupping tr:first-child th:first-child{
+    border-top-left-radius: 10px;
+  }
+  /*第一欄最後列：左下*/
+  .cupping tr:last-child td:first-child{
+    border-bottom-left-radius: 10px;
+  }
+  /*最後欄第一列：右上*/
+  .cupping tr:first-child th:last-child{
+    border-top-right-radius: 10px;
+  }
+  /*最後欄第一列：右下*/
+  .cupping tr:last-child td:last-child{
+    border-bottom-right-radius: 10px;
+  }

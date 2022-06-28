@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset = "utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+
+    <link rel="icon" href="..\static\img\牛牛頂奶.png" type="image/x-icon" />
+    <title>鮮乳風味評鑑</title>
+    
+    <link rel="stylesheet" type="text/css" href="..\static\assets\css\cupping.css">
+    <link rel="stylesheet" type="text/css" href="..\static\assets\css\cupping_table.css">
+    <link rel="stylesheet" type="text/css" href="..\static\assets\css\cupping_change.css">
+
+  </head>
+
+  <body>
+
+    <script src = "..\static\assets\js\form_display.js"></script>
+    <script src = "..\static\assets\js\multiple_test.js"></script>
+    
+    
+    
+    <div id="title_display">
+      鮮乳風味評鑑
+    </div>
+  
+    <span id="content">
+
+      <span id="container">
+    <div id="first_form" class="box">
+      
+      <a href="cupping.html?test=1"><div id="add_test" class="button_type">增加評鑑項目</div></a>
+
+    </div>
+
+
+
+    <div id="third_form" class="box">
+
+      <div id="total_title" class="test_title">
+        <div id="test_name">測試測試測試</div>(批號 : <span id="test_date"></span>
+        )的評測結果
+      </div></br>
+      
+      <div id="total_score">
+        總分<div id="final_score"></div>
+      </div></br>
+      
+
+      <table id="total" class="test_table">
+        <thead>
+          <tr>
+          
+          <th>
+            香氣</br>Aroma
+          </th>
+          <th>
+            風味</br>Flavor
+          </th>
+          <th>
+            甜感</br>Sweetness
+          </th>
+          <th>
+            體質感</br>Body
+          </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td id="Aroma_Score_Tatol" class="score_t" width="100px">分數</td>
+            <td id="Flavor_Score_Tatol" class="score_t" width="100px"></td>
+            <td id="Sweetness_Score_Tatol" class="score_t" width="100px"></td>
+            <td id="Body_Score_Tatol" class="score_t" width="100px"></td>
+            
+          </tr>
+          <tr>
+            <td id="Aroma_Tatol" class="comment_t"></td>
+            <td id="Flavor_Tatol" class="comment_t"></td>
+            <td id="Sweetness_Tatol" class="comment_t"></td>
+            <td id="Body_Tatol" class="comment_t"></td>
+            
+          </tr>
+          
+        </tbody>
+        <thead>
+          <tr>
+            <th>
+              質地</br>Texture
+            </th>
+            <th>
+              餘韻</br>Aftertaste
+            </th>
+            <th>
+              平衡性</br>Balance
+            </th>
+            <th>
+              瑕疵</br>Defect
+            </th>  
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td id="Texture_Score_Tatol" class="score_t" width="100px"></td>
+            <td id="Aftertaste_Score_Tatol" class="score_t" width="100px"></td>
+            <td id="Balance_Score_Tatol" class="score_t" width="100px"></td>
+            <td id="Defect_Score_Tatol" class="score_t" width="100px"></td>
+          </tr>
+          <tr>
+            <td id="Texture_Tatol" class="comment_t"></td>
+            <td id="Aftertaste_Tatol" class="comment_t"></td>
+            <td id="Balance_Tatol" class="comment_t"></td>
+            <td id="Defect_Tatol" class="comment_t"></td>
+          </tr>
+        </tbody>
+
+      </table>
+    
+    </div>
+
+
+    </span>
+    </span>
+    
+  </body>
+</html>

@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset = "utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+
+    <link rel="icon" href="..\static\img\牛牛頂奶.png" type="image/x-icon" />
+    <title>鮮乳風味評鑑</title>
+    
+    <link rel="stylesheet" type="text/css" href="..\static\assets\css\cupping.css">
+    <link rel="stylesheet" type="text/css" href="..\static\assets\css\cupping_table.css">
+    <link rel="stylesheet" type="text/css" href="..\static\assets\css\cupping_change.css">
+
+  </head>
+
+  <body onload="test_number()">
+
+    
+    <script src = "..\static\assets\js\cupping.js"></script>
+    <script src = "..\static\assets\js\send_mes.js"></script>
+    <script src = "..\static\assets\js\multiple_test.js"></script>
+    
+    <div id="title_display">
+      鮮乳風味評鑑
+    </div>
+  
+    <span id="content">
+
+      <span id="container">
+    <div id="first_form" class="box">
+      
+      <span>
+
+        <div class="input_row">
+        </br>
+          樣品名:</br>
+          
+        </div>
+
+      </br>
+        <div class="input_row">
+          <input id="input_name" type="text" name="fruit" list="test_name_choose" autocomplete="off" onchange="choosename()"/>
+          <datalist id="test_name_choose">
+            <option class="tname" style="background:#eac6ba;" >豐樂</option>
+            <option class="tname" style="background:#deeeee;" >A2</option>
+            <option class="tname" style="background:#ced9b9;" >小嘉明</option>
+            <option class="tname" style="background:#b8c1a6;" >大嘉明</option>
+            <option class="tname" style="background:#f9e3b4;" >幸運兒</option>
+            <option class="tname" style="background:#dddddd;" >許慶良</option>
+            <option class="tname" style="background:#cad3e2;" >雙福</option>
+            <option class="tname" style="background:#e1d6e7;" >桂芳</option>
+          </datalist>
+        </div>
+
+        <div class="input_row">
+        </br>
+          批號(有效日期):</br>
+          <input id="test_date_choose" name="date" type="date" onchange="choosedate(event)" required/>
+        </div>
+
+        <div class="input_row">
+        </br>
+          乳色:</br>
+          <div id="color_palette">
+            <span id="color_1" class="color" style="background:#cce9f7;" onclick="choosecolor(event)"></span>
+            <span id="color_2" class="color" style="background:#f1f8fe;" onclick="choosecolor(event)"></span>
+            <span id="color_3" class="color" style="background:#ffffff;" onclick="choosecolor(event)"></span>
+            <span id="color_4" class="color" style="background:#fbf5df;" onclick="choosecolor(event)"></span>
+            <span id="color_5" class="color" style="background:#f9de9b;" onclick="choosecolor(event)"></span>
+          </div>
+        </div>
+
+      </span>
+
+    </div>
+
+
+
+    <div id="second_form" class="box">
+
+      <span class="float">
+
+      <table id="aroma" class="cupping">
+
+        <thead>
+          <tr><th>
+          香氣</br>Aroma
+          </th></tr>
+        </thead>
+
+        <tbody>
+          <tr class="score_display"><td>
+            <div class="score">
+            <div class="score_show">分數</div>
+            <div id="Aroma_Score_Show" class="score_show">0</div>
+            </div>
+          </td></tr>
+          <tr><td>
+            <input id="Aroma_Score" class="select" type="range" name="points" min="6" max="10" step="0.25" oninput="inputScore(event)">  
+          </td></tr>
+          <tr><td>
+            <div id="Aroma_Positive_Show" class="hastage_show"></div>
+            <input id="Aroma_Positive" class="positive_comment" type="name" placeholder="香氣正面評價" onkeypress="inputHastag(event)">
+            <div id="Aroma_Negative_Show" class="hastage_show"></div>
+            <input id="Aroma_Negative" class="negative_comment" type="name" placeholder="香氣負面評價" onkeypress="inputHastag(event)">
+          </td></tr>
+          
+        </tbody>
+
+      </table>
+
+      <table id="flavor" class="cupping">
+  
+        <thead>
+          <tr><th>
+          風味</br>Flavor
+          </th></tr>
+        </thead>
+  
+        <tbody>
+          <tr class="score_display"><td>
+            <div class="score">
+            <div class="score_show">分數x2</div>
+            <div id="Flavor_Score_Show" class="score_show">0</div>
+            </div>
+          </td></tr>
+          <tr><td>
+            <input id="Flavor_Score" class="select" type="range" name="points" min="6" max="10" step="0.25" oninput="inputScore(event)">    
+          </td></tr>
+          <tr><td>
+            <div id="Flavor_Positive_Show" class="hastage_show"></div>
+            <input id="Flavor_Positive" class="positive_comment" type="name" placeholder="風味正面評價" onkeypress="inputHastag(event)">
+            <div id="Flavor_Negative_Show" class="hastage_show"></div>
+            <input id="Flavor_Negative" class="negative_comment" type="name" placeholder="風味負面評價" onkeypress="inputHastag(event)">
+          </td></tr>
+          
+        </tbody>
+  
+      </table>
+  
+      <table id="sweetness" class="cupping">
+  
+        <thead>
+          <tr><th>
+          甜感</br>Sweetness
+          </th></tr>
+        </thead>
+  
+        <tbody>
+          <tr class="score_display"><td>
+            <div class="score">
+            <div class="score_show">分數x2</div>
+            <div id="Sweetness_Score_Show" class="score_show">0</div>
+            </div>
+          </td></tr>
+          <tr><td>
+            <input id="Sweetness_Score" class="select" type="range" name="points" min="6" max="10" step="0.25" oninput="inputScore(event)">  
+          </td></tr>
+          <tr><td>
+            <div id="Sweetness_Positive_Show" class="hastage_show"></div>
+            <input id="Sweetness_Positive" class="positive_comment" type="name" placeholder="甜感正面評價" onkeypress="inputHastag(event)">
+            <div id="Sweetness_Negative_Show" class="hastage_show"></div>
+            <input id="Sweetness_Negative" class="negative_comment" type="name" placeholder="甜感負面評價" onkeypress="inputHastag(event)">
+          </td></tr>
+          
+        </tbody>
+  
+      </table>
+
+
+      <table id="body" class="cupping">
+
+        <thead>
+          <tr><th>
+          體質感</br>Body
+          </th></tr>
+        </thead>
+
+        <tbody>
+          <tr class="score_display"><td>
+            <div class="score">
+            <div class="score_show">分數</div>
+            <div id="Body_Score_Show" class="score_show">0</div>
+            </div>
+          </td></tr>
+          <tr><td>
+            <input id="Body_Score" class="select" type="range" name="points" min="6" max="10" step="0.25" oninput="inputScore(event)">  
+          </td></tr>
+          <tr><td>
+            <div id="Body_Positive_Show" class="hastage_show"></div>
+            <input id="Body_Positive" class="positive_comment" type="name" placeholder="體質感正面評價" onkeypress="inputHastag(event)">
+            <div id="Body_Negative_Show" class="hastage_show"></div>
+            <input id="Body_Negative" class="negative_comment" type="name" placeholder="體質感負面評價" onkeypress="inputHastag(event)">
+          </td></tr>
+          
+        </tbody>
+
+      </table>
+
+
+      <table id="texture" class="cupping">
+
+        <thead>
+          <tr><th>
+          口感</br>Texture
+          </th></tr>
+        </thead>
+
+        <tbody>
+          <tr class="score_display"><td>
+            <div class="score">
+            <div class="score_show">分數</div>
+            <div id="Texture_Score_Show" class="score_show">0</div>
+            </div>
+          </td></tr>
+          <tr><td>
+            <input id="Texture_Score" class="select" type="range" name="points" min="6" max="10" step="0.25" oninput="inputScore(event)">  
+          </td></tr>
+          <tr><td>
+            <div id="Texture_Positive_Show" class="hastage_show"></div>
+            <input id="Texture_Positive" class="positive_comment" type="name" placeholder="質地正面評價" onkeypress="inputHastag(event)">
+            <div id="Texture_Negative_Show" class="hastage_show"></div>
+            <input id="Texture_Negative" class="negative_comment" type="name" placeholder="質地負面評價" onkeypress="inputHastag(event)">
+          </td></tr>
+          
+        </tbody>
+
+      </table>
+
+      <table id="aftertaste" class="cupping">
+
+        <thead>
+          <tr><th>
+          餘韻</br>Aftertaste
+          </th></tr>
+        </thead>
+  
+        <tbody>
+          <tr class="score_display"><td>
+            <div class="score">
+            <div class="score_show">分數</div>
+            <div id="Aftertaste_Score_Show" class="score_show">0</div>
+            </div>
+          </td></tr>
+          <tr><td>
+            <input id="Aftertaste_Score" class="select" type="range" name="points" min="6" max="10" step="0.25" oninput="inputScore(event)">  
+          </td></tr>
+          <tr><td>
+            <div id="Aftertaste_Positive_Show" class="hastage_show"></div>
+            <input id="Aftertaste_Positive" class="positive_comment" type="name" placeholder="餘韻正面評價" onkeypress="inputHastag(event)">
+            <div id="Aftertaste_Negative_Show" class="hastage_show"></div>
+            <input id="Aftertaste_Negative" class="negative_comment" type="name" placeholder="餘韻負面評價" onkeypress="inputHastag(event)">
+          </td></tr>
+          
+        </tbody>
+  
+      </table>
+
+      <table id="balance" class="cupping">
+
+        <thead>
+          <tr><th>
+          平衡性</br>Balance
+          </th></tr>
+        </thead>
+  
+        <tbody>
+          <tr class="score_display"><td>
+            <div class="score">
+            <div class="score_show">分數</div>
+            <div id="Balance_Score_Show" class="score_show">0</div>
+            </div>
+          </td></tr>
+          <tr><td>
+            <input id="Balance_Score" class="select" type="range" name="points" min="6" max="10" step="0.25" oninput="inputScore(event)">  
+          </td></tr>
+          <tr><td>
+            <div id="Balance_Positive_Show" class="hastage_show"></div>
+            <input id="Balance_Positive" class="positive_comment" type="name" placeholder="平衡性正面評價" onkeypress="inputHastag(event)">
+            <div id="Balance_Negative_Show" class="hastage_show"></div>
+            <input id="Balance_Negative" class="negative_comment" type="name" placeholder="平衡性負面評價" onkeypress="inputHastag(event)">
+          </td></tr>
+          
+        </tbody>
+  
+      </table>
+  
+      
+  
+  
+      <table id="defect" class="cupping">
+  
+        <thead>
+          <tr><th>
+          瑕疵</br>Defect
+          </th></tr>
+        </thead>
+  
+        <tbody>
+          <tr class="score_display"><td>
+            <div class="score">
+            <div class="score_show">扣分</div>
+            <div id="Defect_Score_Show" class="score_show">0</div>
+            </div>
+          </td></tr>
+          
+          <tr class="defect_h"><td>     
+           
+            <div id="Defect_Negative_Show" class="hastage_show"></div> 
+            <div id="defect_select_div">
+              <div id="defect_0" class="defect_selet" onclick="add_defect(event)">苦味</div>
+              <div id="defect_1" class="defect_selet" onclick="add_defect(event)">酸味</div>
+              <div id="defect_2" class="defect_selet" onclick="add_defect(event)">塑膠</div>
+              <div id="defect_3" class="defect_selet" onclick="add_defect(event)">霉味</div>
+              <div id="defect_4" class="defect_selet" onclick="add_defect(event)">金屬味</div>
+            </div>
+            <input id="Defect_Negative" class="defect_comment" type="name" placeholder="其他" onkeypress="inputHastag(event)">
+          </br>一項扣總分10分
+          </td></tr>
+          
+        </tbody>
+  
+      </table>
+
+
+    
+
+      </span>
+
+    
+
+    </div>
+
+
+
+    <div id="third_form" class="box">
+
+      <div id="total_title" class="test_title">
+        <div id="test_name"></div>(批號 : <span id="test_date"></span>
+        )的評測結果
+      </div></br>
+      
+      <div id="total_score">
+        總分<div id="final_score"></div>
+      </div></br>
+      
+
+      <table class="test_table total">
+        <thead>
+          <tr>
+          
+          <th>
+            香氣</br>Aroma
+          </th>
+          <th>
+            風味</br>Flavor
+          </th>
+          <th>
+            甜感</br>Sweetness
+          </th>
+          <th>
+            體質感</br>Body
+          </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td id="Aroma_Score_Tatol" class="score_t" width="100px">分數</td>
+            <td id="Flavor_Score_Tatol" class="score_t" width="100px"></td>
+            <td id="Sweetness_Score_Tatol" class="score_t" width="100px"></td>
+            <td id="Body_Score_Tatol" class="score_t" width="100px"></td>
+            
+          </tr>
+          <tr>
+            <td id="Aroma_Tatol" class="comment_t"></td>
+            <td id="Flavor_Tatol" class="comment_t"></td>
+            <td id="Sweetness_Tatol" class="comment_t"></td>
+            <td id="Body_Tatol" class="comment_t"></td>
+            
+          </tr>
+          
+        </tbody>
+        <thead>
+          <tr>
+            <th>
+              質地</br>Texture
+            </th>
+            <th>
+              餘韻</br>Aftertaste
+            </th>
+            <th>
+              平衡性</br>Balance
+            </th>
+            <th>
+              瑕疵</br>Defect
+            </th>  
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td id="Texture_Score_Tatol" class="score_t" width="100px"></td>
+            <td id="Aftertaste_Score_Tatol" class="score_t" width="100px"></td>
+            <td id="Balance_Score_Tatol" class="score_t" width="100px"></td>
+            <td id="Defect_Score_Tatol" class="score_t" width="100px"></td>
+          </tr>
+          <tr>
+            <td id="Texture_Tatol" class="comment_t"></td>
+            <td id="Aftertaste_Tatol" class="comment_t"></td>
+            <td id="Balance_Tatol" class="comment_t"></td>
+            <td id="Defect_Tatol" class="comment_t"></td>
+          </tr>
+        </tbody>
+
+      </table>
+    </br>
+      <button id="submit" type="button" onclick="send_message()">確認送出</button>
+
+    </div>
+
+
+    </span>
+    </span>
+    
+  </body>
+</html>

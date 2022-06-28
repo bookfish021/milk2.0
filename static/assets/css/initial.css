@@ -1,0 +1,65 @@
+html,body{
+
+    scroll-behavior: smooth;
+    background-color: #FBDAD1;  
+    height: 100%;
+    
+}
+
+#title_display{
+
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+#logo{
+
+    height: 30px;
+    
+}
+
+
+#content{
+    
+    display: flex;
+    width: 100%;
+    height: 80%;
+    
+}
+
+
+.box{
+
+    height: 300px;
+    width: 300px;
+    background-color: #ffffff;
+    border-radius: 25px;
+
+    position: relative;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.input_row{
+    
+    align-items: space-evenly;
+    
+}
+
+a{
+    height:fit-content;
+}
+
+.button_type:hover{
+
+    cursor: pointer;
+}
