@@ -1,0 +1,188 @@
+.box {
+    
+    padding: 70px 50px;
+    
+  }
+
+form{
+    justify-content: center;
+}
+
+
+.account{
+
+    cursor: pointer;
+    color:#f47373;
+    margin-left: 15px;
+}
+
+
+
+.box .input_row {
+    
+    width: 300px;
+    height: 50px;
+    margin-bottom: 25px;
+
+}
+
+
+
+
+.box .input_row input {
+    width: 92%;
+    border: 2px solid gray;
+    outline: none;
+    background: none;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 1em;
+  }
+
+.box .input_row span {
+    display: inline-block;
+    position: relative;
+    top: -30px;
+    left: 10px;
+    font-size: 1em;
+    transition: 0.3s;
+    font-family: sans-serif;
+    color: gray;
+
+  }
+
+  .box .input_row input:focus {
+    border: 2px solid #4b4a48;
+
+  }
+
+
+  
+.box .input_row input:focus ~ span,
+.box .input_row input:valid ~ span {
+  
+  transform: translateY(-32px) translateX(-10px) scale(0.75);
+  font-size: 1em;
+
+  color:#4b4a48;
+}
+
+
+.button_type{
+
+    text-align: center;
+
+    width: 92%;
+    border: 2px solid #f47373;
+    outline: none;
+    background: #f47373;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 1em;
+    color: white;
+
+}
+
+
+.verify_ok{
+
+    text-align: center;
+
+    width: 92%;
+    border: 2px solid #c89b5c;
+    outline: none;
+    background: #fef4e8;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 1em;
+    color: #c89b5c;
+
+}
+
+
+#double_check{
+
+    height: 250px;
+    width: 350px;
+
+    font-size: 1em;
+    margin: 5px;
+
+   
+    border-radius: 15px;
+    background: #fef4e8;
+
+    position: relative;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    
+    display: flex;
+    align-items: center;
+
+    flex-direction: column;
+
+
+}
+
+.d_check{
+
+    width: 80%;
+    text-align: left;
+    font-size: 1em;
+    margin: 8px;
+}
+
+#confirm{
+
+    margin-top: 15px;
+
+    text-align: center;
+
+    width: 50%;
+    border: 2px solid #f47373;
+    outline: none;
+    background: #f47373;
+    padding: 5px;
+    border-radius: 10px;
+    font-size: 1em;
+    color: white;
+    cursor: pointer;
+
+
+}
+
+#rewrite{
+    cursor: pointer;
+    color: #f47373;
+}
+
+#rewrite:hover{
+    font-weight: bolder;
+}
+
+.check_display{
+    margin-left: 10px;
+
+}
+
+
+.iden{
+    font-weight: bolder;
+    width: 30px;
+    margin-left: 20px;
+    border-radius: 10px;
+
+}
+
+.iexpert{
+
+    border: 2px solid #c89b5c;
+    color:#c89b5c;
+
+}
+
+.consumer{
+    border: 2px solid #a8d5d5;
+    color:#a8d5d5;
+}

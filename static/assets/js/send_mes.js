@@ -7,6 +7,7 @@ function send_message(){
     }
     
     var json_text={
+        
         "name" : namec,
         "date" : datec,
         "color" : colorc,
