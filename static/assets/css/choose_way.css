@@ -28,3 +28,13 @@
     border: 10px solid #FBDAD1;
 
 }
+
+.wayto:hover {
+
+    background-color:#f47373;
+    color: #ffffff;
+    font-weight: bolder;
+
+
+}
+

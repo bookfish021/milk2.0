@@ -14,39 +14,102 @@
 
   <body>
 
-    <script src = "..\static\assets\js\choose.js"></script>
+    <script src = "..\static\assets\js\login_signup.js"></script>
+    <link rel="stylesheet" type="text/css" href="..\static\assets\css\register.css">
+
+
+    <!-- 防止亂跳頁 -->
+    <script type="text/javascript">
+      window.history.forward(1);  
+    </script>
     
-    <link rel="stylesheet" type="text/css" href="..\static\assets\css\choose_way.css">
     
     
     <div id="title_display">
-      鮮乳風味評鑑
+      <h1>鮮乳風味評鑑</h1>
     </div>
   
     <div id="content">
-    <div id="count" class="box">
+    <div id="login" class="box"  style="display:flex">
       
-      <span>
+        <form>
+
+        <h1>登入</h1>
+
+        <h4>還沒有帳號嗎? <span class="account" onclick="new_account()">建立帳號</span></h4>
+        
 
         <div class="input_row">
-          user name:</br>
-          <input name="name" type="name" required/>
+          <input id="log_mail" name="email" type="email" required/>
+          <span>Email</span>
         </div>
 
         <div class="input_row">
-          user email:</br>
-          <input name="email" type="email" placeholder="name@domain.com" required/>
+          <input id="log_password" name="name" type="name" required/>
+          <span>Password</span>
         </div>
 
         <div class="input_row">
-          </br>
-          
           <div id="log_in" class="button_type" onclick="two_way()">開始</div>
         </div>
 
-      </span>
+        
+
+      </form>
 
     </div>
+
+    <div id="double_check" style="display:none">
+
+      <h3>註冊確認</h3>
+
+      <div class="d_check">Name : <span id="user_name" class="check_display"></span></div>
+      <div class="d_check">Email : <span id="user_mail" class="check_display"></span></div>
+      <div class="d_check">Password : <span id="user_password" class="check_display"></span></div>
+      <div id="confirm" onclick="create()">確認</div>
+      <div id="rewrite" onclick="rewrite()">修改</div>
+
+    </div>
+
+
+    <div id="signup" class="box"  style="display:none">
+      
+      <form>
+
+      <h1>註冊</h1>
+
+      <div class="input_row">
+        <input id="sign_name" name="name" type="name" required/>
+        <span>Name</span>
+      </div>
+      
+      <div class="input_row">
+        <input id="sign_mail" name="email" type="email" required/>
+        <span>Email</span>
+      </div>
+
+      <div class="input_row">
+        <input id="sign_password" name="name" type="name" required/>
+        <span>Password</span>
+      </div>
+
+      <div class="input_row" id="expert">
+        <input id="sign_expert" name="name" type="name" onkeypress="verify_expert(event)" required/>
+        <span>夥伴邀請碼  (僅專家必填)</span>
+      </div>
+
+
+      <div class="input_row">
+        <div id="sign_up" class="button_type" onclick="create_account()">建立帳號</div>
+      </div>
+
+      
+
+    </form>
+    </div>
+
+    
+
     </div>
     
   </body>
