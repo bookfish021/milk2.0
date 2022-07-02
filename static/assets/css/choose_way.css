@@ -18,6 +18,12 @@
 
     height: 150px;
     width: 150px;
+    border: 10px solid #FBDAD1;
+}
+
+.button_type{
+
+    
     background-color: #ffffff;
     border-radius: 25px;
 
@@ -25,11 +31,11 @@
     justify-content: center;
     align-items: center;
 
-    border: 10px solid #FBDAD1;
+    
 
 }
 
-.wayto:hover {
+.button_type:hover {
 
     background-color:#f47373;
     color: #ffffff;
@@ -38,3 +44,53 @@
 
 }
 
+a{
+    justify-content: center;
+    text-align: center;
+}
+
+a:link {
+    text-decoration: none;
+    color: #4b4a48;
+  }
+  
+  a:visited {
+    text-decoration: none;
+    color: #4b4a48;
+  }
+  
+  a:hover {
+    text-decoration: none;
+    color: #ffffff;
+  }
+  
+a:active {
+    text-decoration: none;
+    color: #4b4a48;
+}
+
+.change_test{
+
+    display:inline-flex;
+    background-color: #FBDAD1;
+    border-radius: 5px;
+    
+    margin: 10px;
+    width: 100px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.change_test:hover{
+
+    background-color:#f47373;
+    color: #ffffff;
+    font-weight: bolder;
+
+    cursor: pointer;
+
+    
+
+}
