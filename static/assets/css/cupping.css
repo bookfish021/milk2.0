@@ -2,6 +2,7 @@ html,body{
     scroll-behavior: smooth;
     background-color: #FBDAD1;  
     height: 100%;
+    color: #4b4a48;
     
     
 }
@@ -36,7 +37,8 @@ html,body{
 
     height:min-content;
     width: 1020px;
-    border: 30px solid #ffffff;
+    
+    padding: 30px;
     background-color: #ffffff;
     border-radius: 25px;
 

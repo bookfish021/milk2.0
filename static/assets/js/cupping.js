@@ -366,7 +366,7 @@ function test_number(){
     test_id= getval.split("=")[1];
 
 
-    if (localStorage.getItem("milktest "+parseInt(test_id)) != null) {
+    if (localStorage.getItem("milktest "+parseInt(test_id)) != "unset") {
 
         data=localStorage.getItem("milktest "+test_id);
         window.alert(data);
