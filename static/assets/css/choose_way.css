@@ -40,6 +40,7 @@
     background-color:#f47373;
     color: #ffffff;
     font-weight: bolder;
+    cursor: pointer;
 
 
 }
@@ -93,4 +94,12 @@ a:active {
 
     
 
+}
+
+
+canvas{
+
+    display:inline  !important;
+    height: 300px  !important;
+    width: 300px  !important ;
 }

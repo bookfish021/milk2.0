@@ -390,8 +390,11 @@ function test_number(){
 
 
         //color
-        colorc=data.color;
-        document.getElementById("color_"+colorc).style.border="2px solid #000000";
+        if(colorc!=0){
+            colorc=data.color;
+            document.getElementById("color_"+colorc).style.border="2px solid #000000";
+        }
+        
 
 
         //score
