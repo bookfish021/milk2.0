@@ -374,7 +374,7 @@ function test_number(){
 
 
         //name
-        namec=data.name;
+        namec=data.productName;
         document.getElementById("input_name").value=namec;
         document.getElementById("test_name").innerHTML=namec;
 
@@ -398,86 +398,86 @@ function test_number(){
 
 
         //score
-        AromaScore=data.score_detail[0];
+        AromaScore=data.aromaScore;
         document.getElementById("Aroma_Score_Show").innerHTML=AromaScore;
         document.getElementById("Aroma_Score_Tatol").innerHTML=AromaScore;
 
-        FlavorScore=data.score_detail[1];
+        FlavorScore=data.flavorScore;
         document.getElementById("Flavor_Score_Show").innerHTML=FlavorScore;
         document.getElementById("Flavor_Score_Tatol").innerHTML=FlavorScore;
 
-        SweetnessScore=data.score_detail[2];
+        SweetnessScore=data.sweetnessScore;
         document.getElementById("Sweetness_Score_Show").innerHTML=SweetnessScore;
         document.getElementById("Sweetness_Score_Tatol").innerHTML=SweetnessScore;
 
-        BodyScore=data.score_detail[3];
+        BodyScore=data.bodyScore;
         document.getElementById("Body_Score_Show").innerHTML=BodyScore;
         document.getElementById("Body_Score_Tatol").innerHTML=BodyScore;
 
-        TextureScore=data.score_detail[4];
+        TextureScore=data.textureScore;
         document.getElementById("Texture_Score_Show").innerHTML=TextureScore;
         document.getElementById("Texture_Score_Tatol").innerHTML=TextureScore;
 
-        AftertasteScore=data.score_detail[5];
+        AftertasteScore=data.aftertasteScore;
         document.getElementById("Aftertaste_Score_Show").innerHTML=AftertasteScore;
         document.getElementById("Aftertaste_Score_Tatol").innerHTML=AftertasteScore;
 
-        BalanceScore=data.score_detail[6];
+        BalanceScore=data.balanceScore;
         document.getElementById("Balance_Score_Show").innerHTML=BalanceScore;
         document.getElementById("Balance_Score_Tatol").innerHTML=BalanceScore;
 
-        DefectScore=data.score_detail[7];
+        DefectScore=data.defectScore;
         document.getElementById("Defect_Score_Show").innerHTML=DefectScore;
         document.getElementById("Defect_Score_Tatol").innerHTML=(-DefectScore);
 
 
         //comment
-        AromaPositiveShow=data.comment.positive[0];
+        AromaPositiveShow=data.aromaPositive;
         showArray("Aroma_Positive_Show", AromaPositiveShow, "AromaPositiveShow");
 
-        FlavorPositiveShow=data.comment.positive[1];
+        FlavorPositiveShow=data.flavorPositive;
         showArray("Flavor_Positive_Show", FlavorPositiveShow, "FlavorPositiveShow");
 
-        SweetnessPositiveShow=data.comment.positive[2];
+        SweetnessPositiveShow=data.sweetnessPositive;
         showArray("Sweetness_Positive_Show", SweetnessPositiveShow, "SweetnessPositiveShow");
 
-        BodyPositiveShow=data.comment.positive[3];
+        BodyPositiveShow=data.bodyPositive;
         showArray("Body_Positive_Show", BodyPositiveShow, "BodyPositiveShow");
 
-        TexturePositiveShow=data.comment.positive[4];
+        TexturePositiveShow=data.texturePositive;
         showArray("Texture_Positive_Show", TexturePositiveShow, "TexturePositiveShow");
 
-        AftertastePositiveShow=data.comment.positive[5];
+        AftertastePositiveShow=data.aftertastePositive;
         showArray("Aftertaste_Positive_Show", AftertastePositiveShow, "AftertastePositiveShow");
 
-        BalancePositiveShow=data.comment.positive[6];
+        BalancePositiveShow=data.balancePositive;
         showArray("Balance_Positive_Show", BalancePositiveShow, "BalancePositiveShow");
 
 
-        AromaNegativeShow=data.comment.negative[0];
+        AromaNegativeShow=data.aromaNegative;
         showArray("Aroma_Negative_Show", AromaNegativeShow, "AromaNegativeShow");
 
-        FlavorNegativeShow=data.comment.negative[1];
+        FlavorNegativeShow=data.flavorNegative;
         showArray("Flavor_Negative_Show", FlavorNegativeShow, "FlavorNegativeShow");
 
-        SweetnessNegativeShow=data.comment.negative[2];
+        SweetnessNegativeShow=data.sweetnessNegative;
         showArray("Sweetness_Negative_Show", SweetnessNegativeShow, "SweetnessNegativeShow");
 
-        BodyNegativeShow=data.comment.negative[3];
+        BodyNegativeShow=data.bodyNegative;
         showArray("Body_Negative_Show", BodyNegativeShow, "BodyNegativeShow");
 
-        TextureNegativeShow=data.comment.negative[4];
+        TextureNegativeShow=data.textureNegative;
         showArray("Texture_Negative_Show", TextureNegativeShow, "TextureNegativeShow");
 
-        AftertasteNegativeShow=data.comment.negative[5];
+        AftertasteNegativeShow=data.aftertasteNegative;
         showArray("Aftertaste_Negative_Show", AftertasteNegativeShow, "AftertasteNegativeShow");
 
-        BalanceNegativeShow=data.comment.negative[6];
+        BalanceNegativeShow=data.balanceNegative;
         showArray("Balance_Negative_Show", BalanceNegativeShow, "BalanceNegativeShow");
 
 
         
-        DefectNegativeShow=data.comment.negative[7];
+        DefectNegativeShow=data.defectNegative;
 
         for(var a=0;a<DefectNegativeShow.length;a++){
             var index = defectform.indexOf(DefectNegativeShow[a]);

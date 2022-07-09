@@ -84,6 +84,14 @@ function check_legitimate(new_name,new_mail,new_password){
 
 
     //if legitimate
+
+
+
+
+
+
+
+
     mes="";
 
     mes='<span class="iden iexpert">專家</span>';
