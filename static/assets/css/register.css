@@ -111,20 +111,14 @@ form{
     font-size: 1em;
     margin: 5px;
 
-   
+
     border-radius: 15px;
     background: #fef4e8;
-
-    position: relative;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%,-50%);
     
     display: flex;
     align-items: center;
 
     flex-direction: column;
-
 
 }
 

@@ -20,6 +20,37 @@ function send_message(){
         
     };
 
+
+    var json_text={
+        "productName": namec,
+        "date":datec,
+        "color":colorc,
+        "score":final_score,
+        "aromaScore":AromaScore,
+        "flavorScore":FlavorScore,
+        "sweetnessScore":SweetnessScore,
+        "bodyScore":BodyScore,
+        "textureScore":TextureScore,
+        "aftertasteScore":AftertasteScore,
+        "balanceScore":BalanceScore,
+        "defectScore":DefectScore,
+        "aromaPositive":AromaPositiveShow,
+        "flavorPositive":FlavorPositiveShow,
+        "sweetnessPositive":SweetnessPositiveShow,
+        "bodyPositive":BodyPositiveShow,
+        "texturePositive":TexturePositiveShow,
+        "aftertastePositive":AftertastePositiveShow,
+        "balancePositive":BalancePositiveShow,
+        "aromaNegative":AromaNegativeShow,
+        "flavorNegative":FlavorNegativeShow,
+        "sweetnessNegative":SweetnessNegativeShow,
+        "bodyNegative":BodyNegativeShow,
+        "textureNegative":TextureNegativeShow,
+        "aftertasteNegative":AftertasteNegativeShow,
+        "balanceNegative":BalanceNegativeShow,
+        "defectNegative":DefectNegativeShow
+      };
+
     //window.alert(json_text);
 
 

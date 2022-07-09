@@ -29,25 +29,61 @@ html,body{
     
     display: flex;
     width: 100%;
-    height: 80%;
+    
     justify-content: center;
     
 }
+
+
 
 
 .box{
 
-   
+    height:min-content;
+    width: 1020px;
+    
+    padding: 30px;
     background-color: #ffffff;
     border-radius: 25px;
 
-    
-    
     display: flex;
     justify-content: center;
     align-items: center;
+    
+    margin-bottom:10%;
 
 }
+
+
+
+@media all and (min-width: 760px)  {
+    
+    .box{
+        position: relative;
+        width:700px;
+        
+    }
+ }
+ 
+ @media all and (min-width: 480px) and (max-width: 759px) {
+    
+    .box{
+        position: relative;
+        width:400px;
+        border: 10px solid #ffffff;
+
+    }
+ }
+ 
+ @media all and (max-width: 480px) {
+    
+    .box{
+        position: relative;
+        width:90%;
+    }
+ }
+
+
 
 .input_row{
     
