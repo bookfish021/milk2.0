@@ -30,13 +30,13 @@
     </div>
   
     <div id="content">
-    <div id="login" class="box"  style="display:flex">
+    <div id="login" class="box"  style="display:flex; height: 450px;">
       
         <form>
 
         <h1>登入</h1>
 
-        <h4>還沒有帳號嗎? <span class="account" onclick="new_account()">建立帳號</span></h4>
+        <h4>還沒有帳號嗎? <span class="account" onclick="new_account()">建立帳號</span></h4></br>
         
 
         <div class="input_row">
@@ -62,10 +62,14 @@
     <div id="double_check" style="display:none">
 
       <h3>註冊確認</h3>
+      <div id="check_detail">
 
-      <div class="d_check">Name : <span id="user_name" class="check_display"></span></div>
-      <div class="d_check">Email : <span id="user_mail" class="check_display"></span></div>
-      <div class="d_check">Password : <span id="user_password" class="check_display"></span></div>
+      <div class="d_check">姓名 : <span id="user_name" class="check_display"></span></div>
+      <div class="d_check">手機 (帳號) : <span id="user_phone" class="check_display"></span></div>
+      <div class="d_check">密碼 : <span id="user_password" class="check_display"></span></div>
+      <div class="d_check">店家 : <span id="user_store" class="check_display"></span></div>
+      <div class="d_check">信箱 : <span id="user_mail" class="check_display"></span></div>
+      </div>
       <div id="confirm" onclick="create()">確認</div>
       <div id="rewrite" onclick="rewrite()">修改</div>
 
@@ -80,7 +84,24 @@
 
       <div class="input_row">
         <input id="sign_name" name="name" type="name" required/>
-        <span>Name</span>
+        <span>Name *</span>
+      </div>
+
+      <div class="input_row">
+        <input id="sign_store" name="name" type="name" required/>
+        <span>店家</span>
+        <div class="input_detail">如果您服務於咖啡店、茶飲店、甜點店、餐廳等，歡迎填入您所屬店名</div>
+        
+      </div>
+
+      <div class="input_row">
+        <input id="sign_phone" name="name" type="tel" required/>
+        <span>手機 (帳號) *</span>
+      </div>
+
+      <div class="input_row">
+        <input id="sign_password" name="name" type="name" required/>
+        <span>Password *</span>
       </div>
       
       <div class="input_row">
@@ -88,11 +109,7 @@
         <span>Email</span>
       </div>
 
-      <div class="input_row">
-        <input id="sign_password" name="name" type="name" required/>
-        <span>Password</span>
-      </div>
-
+      
       <div class="input_row" id="expert">
         <input id="sign_expert" name="name" type="name" onkeypress="verify_expert(event)" required/>
         <span>夥伴邀請碼  (僅專家必填)</span>

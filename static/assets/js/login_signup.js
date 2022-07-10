@@ -1,5 +1,10 @@
 var expert_password="ilovemilk";
 var expert=0;
+var new_store="";
+var new_name="";
+var new_phone="";
+var new_password="";
+var new_mail="";
 
 
 function new_account(){
@@ -12,7 +17,7 @@ function new_account(){
 
 function create_account(){
 
-    new_name="";
+    
     new_name=document.getElementById("sign_name").value;
     if(new_name==""){
 
@@ -21,12 +26,32 @@ function create_account(){
         return 0;
     }
 
+    phoneRull=/^09[0-9]{8}$/;
+    
+    new_phone=document.getElementById("sign_phone").value;
+    if(new_phone==""|new_phone.search(phoneRull)== -1){
+        document.getElementById("sign_phone").style.border="2px solid #f47373";
+        window.alert("手機號碼填寫錯誤");
+        return 0;
+    }
+
+
+    
+    new_password=document.getElementById("sign_password").value;
+    if(new_password==""){
+        document.getElementById("sign_password").style.border="2px solid #f47373";
+        window.alert("密碼必填");
+        return 0;
+    }
+
+    
 
     emailRule = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
  
-    new_mail="";
+    
     new_mail=document.getElementById("sign_mail").value;
-    if(new_mail.search(emailRule)== -1){
+    window.alert(new_mail);
+    if(new_mail!="" & new_mail.search(emailRule)== -1){
 
         document.getElementById("sign_mail").style.border="2px solid #f47373";
         window.alert("信箱格式錯誤");
@@ -34,13 +59,7 @@ function create_account(){
         return 0;
     }
 
-    new_password="";
-    new_password=document.getElementById("sign_password").value;
-    if(new_password==""){
-        document.getElementById("sign_password").style.border="2px solid #f47373";
-        window.alert("密碼必填");
-        return 0;
-    }
+    
 
 
     if(expert==0){
@@ -57,7 +76,7 @@ function create_account(){
     }
     
     
-    check_legitimate(new_name,new_mail,new_password);
+    check_legitimate();
 
 }
 
@@ -80,13 +99,10 @@ function verify_expert(event){
 }
 
 
-function check_legitimate(new_name,new_mail,new_password){
+function check_legitimate(){
 
 
-    //if legitimate
-
-
-
+    /* 資料是否重疊合法 */
 
 
 
@@ -94,16 +110,48 @@ function check_legitimate(new_name,new_mail,new_password){
 
     mes="";
 
-    mes='<span class="iden iexpert">專家</span>';
-    if(expert==0){
-        mes='<span class="iden consumer">消費者</span>';
-    }
+    
+    /*
     mes=new_name+mes;
     document.getElementById("user_name").innerHTML=mes;
-    document.getElementById("user_mail").innerHTML=new_mail;
+    document.getElementById("user_phone").innerHTML=new_phone;
     document.getElementById("user_password").innerHTML=new_password;
+    document.getElementById("user_mail").innerHTML=new_mail;
+    
+    */
+
+    mes='<div class="d_check">姓名 : <span class="check_display">'+new_name+'</span>';
+
+
+    
+    if(expert==0){
+        mes+='<span class="iden consumer">消費者</span></div>';
+    }
+
+    else{mes+='<span class="iden iexpert">專家</span></div>';}
+
+    mes+='<div class="d_check">手機 (帳號) : <span class="check_display">'+new_phone+'</span></div>'
+        +'<div class="d_check">密碼 : <span class="check_display">'+new_password+'</span></div>';
+
+    
+    if(new_mail!=""){
+        mes+='<div class="d_check">信箱 : <span class="check_display">'+new_mail+'</span></div>';
+    }
+
+    new_store=document.getElementById("sign_store").value;
+
+    if(new_store!=""){
+
+        mes+='<div class="d_check">店家 : <span class="check_display">'+new_store+'</span></div>';
+    }
+
+    document.getElementById("check_detail").innerHTML=mes;
+
     document.getElementById("double_check").style.display="flex";
     document.getElementById("signup").style.display="none";
+
+
+    
 
 
     /*
@@ -120,6 +168,20 @@ function rewrite(){
 
 
 function create(){
+
+
+    var json_text={
+
+        "productName": namec,
+        "name":new_name,
+        "account":new_phone,
+        "password":new_password,
+        "role":expert,
+        "store":new_store,
+        "mail":new_mail
+    };
+
+    JSON.stringify(json_text);
 
     /* 資料庫更新 */
 
