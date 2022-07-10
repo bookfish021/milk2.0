@@ -1,0 +1,59 @@
+
+.box{
+    text-align:center;
+}
+
+.one_test{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:space-evenly;
+
+}
+
+
+
+
+.test_detail{
+
+
+    text-align:left;
+    width: 300px  !important ;
+
+    margin: 20px;
+
+}
+
+
+.test_detail_row{
+    margin: 5px;
+    font-weight: 500;
+}
+
+
+.test_detail_output{
+
+    display:inline-flex;
+    justify-content:right;
+    
+    width: 220px;
+    font-weight: bolder;
+}
+
+
+.test_detail_comment{
+
+    padding: 10px;
+    border-radius: 10px;
+
+
+
+}
+
+
+canvas{
+
+    display:inline  !important;
+    height: 300px  !important;
+    width: 300px  !important ;
+}
