@@ -34,10 +34,17 @@ function list_test(){
             else{
                 test=JSON.parse(test);
 
-                mes+='<div class="box">'
-                +'<span class="test_title">'+test.productName+'</span>(批號 : <span>'+test.date+'</span>)的評測結果</br>'
-                +'<div>總分<div>'+test.score+'</div></div></br>'
-                +'<table class="test_table  total">'
+                mes+='<div class="box"><div class="one_test"><div class="test_detail">'
+                +'<h4><div class="test_title test_detail_row">品項 : <span class="test_detail_output">'+test.productName+'</span></div>'
+                +'<div class="test_detail_row">批號 : <span class="test_detail_output">'+test.date+'</span></div>'
+                +'<div class="test_detail_row">總分 : <span class="test_detail_output">'+test.score+'</span></div>'
+                +'<div class="test_detail_row">正/負面描述 : </div>'
+                +'<div class="test_detail_row test_detail_comment" style="background-color:#FBF5DF;">'+all_comment(test,1)+'</div>'
+                +'<div class="test_detail_row test_detail_comment" style="background-color:#F1F8FE;">'+all_comment(test,0)+'</div></div></h4>'
+                +'<div style="display:inline-block; "><canvas id="marksChart_'+temp+'" width="20"></canvas></div></div>'
+                +'<div><a href="cupping.html?test='+temp+'"><span class="change_test">編輯</span></a><span class="change_test" onclick="delete_test('+temp+')">刪除</span></div></div>';
+                
+           /* +'<table class="test_table  total">'
                 +'<thead><tr><th>香氣</br>Aroma</th><th>風味</br>Flavor</th><th>甜感</br>Sweetness</th><th>體質感</br>Body</th></tr></thead>'
                 +'<tbody><tr><td class="score_t" width="100px">'+test.aromaScore+'</td>'
                 +'<td class="score_t" width="100px">'+test.flavorScore+'</td>'
@@ -55,11 +62,7 @@ function list_test(){
                 +'<tr><td id="Texture_Tatol" class="comment_t">'+comment_detail(test.texturePositive,0)+comment_detail(test.textureNegative,1)+'</td>'
                 +'<td id="Aftertaste_Tatol" class="comment_t">'+comment_detail(test.aftertastePositive,0)+comment_detail(test.aftertasteNegative,1)+'</td>'
                 +'<td id="Balance_Tatol" class="comment_t">'+comment_detail(test.balancePositive,0)+comment_detail(test.balanceNegative,1)+'</td>'
-                +'<td id="Defect_Tatol" class="comment_t">'+comment_detail(test.defectNegative,1)+'</td></tr></tbody></table>'
-                +'<div style="display:inline-block; "><canvas id="marksChart_'+temp+'" width="20"></canvas></div>'
-                +'<div><a href="cupping.html?test='+temp+'"><span class="change_test">編輯</span></a><span class="change_test" onclick="delete_test('+temp+')">刪除</span></div></div>';
-                
-           
+                +'<td id="Defect_Tatol" class="comment_t">'+comment_detail(test.defectNegative,1)+'</td></tr></tbody></table>'*/
 
 
 
@@ -86,6 +89,7 @@ function list_test(){
     //var marksCanvas = document.getElementById("marksChart");
 
    
+    /* radar display */
     for(const [key, value] of Object.entries(data)){
 
         temp=key.substring(9);
@@ -99,7 +103,7 @@ function list_test(){
             marksData = {
                 labels: ["香氣", "風味", "甜感", "體質感", "質地", "餘韻","平衡性"],
                 datasets: [{
-                  label: "Student A",
+                  label: key,
                   backgroundColor: "rgba(200,0,0,0.2)",
                   data: [test.aromaScore,test.flavorScore,test.sweetnessScore,test.bodyScore,test.textureScore,test.aftertasteScore,test.balanceScore]
                 }]
@@ -140,13 +144,41 @@ function list_test(){
 
 }
 
+
+function all_comment(data,type){
+
+    var commentArr=[];
+
+    var mes="";
+
+    if(type==1){
+        commentArr=(data.aromaPositive).concat(data.flavorPositive,data.sweetnessPositive,data.bodyPositive,data.texturePositive,data.aftertastePositive,data.balancePositive);
+    }
+    else{
+        commentArr=(data.aromaNegative).concat(data.flavorNegative,data.sweetnessNegative,data.bodyNegative,data.textureNegative,data.aftertasteNegative,data.balanceNegative,test.defectNegative);
+    }
+
+    window.alert(commentArr);
+    //window.alert(data.balanceNegative);
+
+    for(var a=0;a<commentArr.length;a++){
+        if(a!=0){
+            mes+="、";
+        }
+        mes+=commentArr[a];
+        
+    } 
+
+    return mes;
+}
+
 function comment_detail(comment,m){
 
     mes="";
 
     if(m==0){
 
-        window.alert(comment);
+        //window.alert(comment);
         for(var a=0;a<comment.length;a++){
             mes+='<div class="PS"># '+comment[a]+'</div>';
         } 
@@ -224,14 +256,14 @@ function add_new_test(new_test_id){
         "sweetnessPositive":[],
         "bodyPositive":[],
         "texturePositive":[],
-        "afterTastePositive":[],
+        "aftertastePositive":[],
         "balancePositive":[],
         "aromaNegative":[],
         "flavorNegative":[],
         "sweetnessNegative":[],
         "bodyNegative":[],
         "textureNegative":[],
-        "afterTasteNegative":[],
+        "aftertasteNegative":[],
         "balanceNegative":[],
         "defectNegative":[]
                 

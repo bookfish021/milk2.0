@@ -49,7 +49,7 @@ function choosename(){
 
     namec=test;
 
-    document.getElementById("test_name").innerHTML=namec;
+    //document.getElementById("test_name").innerHTML=namec;
 }
 
 
@@ -58,7 +58,7 @@ function choosedate(event){
     tt=event.target.id;
     datec=document.getElementById(tt).value;
 
-    document.getElementById("test_date").innerHTML=datec;
+    //document.getElementById("test_date").innerHTML=datec;
 
 }
 
@@ -119,7 +119,7 @@ function inputScore(event){
     else if(m=="a"){BalanceScore=parseFloat(score);}
 
     document.getElementById(tt+"_Show").innerHTML=score;
-    document.getElementById(tt+"_Tatol").innerHTML=score;
+    //document.getElementById(tt+"_Tatol").innerHTML=score;
 
     showTatolScore(targetname);
 
@@ -140,15 +140,13 @@ function inputHastag(event){
         document.getElementById(tt).value="";
 
         tt+="_Show";
-        //window.alert(tt);
 
         temp=tt.replace(/_/g,'');
-        //window.alert(tt);
 
         array=choosearray(temp);
 
         array.push(text);
-        //window.alert(array);
+        
 
         showArray(tt, array, temp);
     }
@@ -182,7 +180,7 @@ function add_defect(event){
     }
 
     showDefectScore();
-    showTatolComment("Defect");
+    //showTatolComment("Defect");
     
 
 }
@@ -261,7 +259,7 @@ function showArray(showplace, array, arrayname){
     show.innerHTML=hashtag;
 
     text=showplace.split("_");
-    showTatolComment(text[0]);
+    //showTatolComment(text[0]);
 
 
     //count Defect score
@@ -287,7 +285,7 @@ function showDefectScore(){
     DefectScore+=(DefectNegativeShow.length)*10;
 
     document.getElementById("Defect_Score_Show").innerHTML=parseInt(DefectScore);
-    document.getElementById("Defect_Score_Tatol").innerHTML=parseInt(-DefectScore);
+    //document.getElementById("Defect_Score_Tatol").innerHTML=parseInt(-DefectScore);
 
 
 }
@@ -306,6 +304,8 @@ function showTatolScore(mask){
     
 }
 
+
+/* Tatol table deleted
 function showTatolComment(feature){
 
     //window.alert(feature);
@@ -357,6 +357,7 @@ function showTatolComment(feature){
     show.innerHTML=hashtag;
 
 }
+*/
 
 
 function test_number(){
@@ -376,12 +377,12 @@ function test_number(){
         //name
         namec=data.productName;
         document.getElementById("input_name").value=namec;
-        document.getElementById("test_name").innerHTML=namec;
+        //document.getElementById("test_name").innerHTML=namec;
 
         //date
         datec=data.date;
         document.getElementById("test_date_choose").value=datec;
-        document.getElementById("test_date").innerHTML=datec;
+        //document.getElementById("test_date").innerHTML=datec;
 
 
         //t score
@@ -390,8 +391,9 @@ function test_number(){
 
 
         //color
+        colorc=data.color;
         if(colorc!=0){
-            colorc=data.color;
+            //window.alert(colorc);
             document.getElementById("color_"+colorc).style.border="2px solid #000000";
         }
         
@@ -400,35 +402,35 @@ function test_number(){
         //score
         AromaScore=data.aromaScore;
         document.getElementById("Aroma_Score_Show").innerHTML=AromaScore;
-        document.getElementById("Aroma_Score_Tatol").innerHTML=AromaScore;
+        //document.getElementById("Aroma_Score_Tatol").innerHTML=AromaScore;
 
         FlavorScore=data.flavorScore;
         document.getElementById("Flavor_Score_Show").innerHTML=FlavorScore;
-        document.getElementById("Flavor_Score_Tatol").innerHTML=FlavorScore;
+        //document.getElementById("Flavor_Score_Tatol").innerHTML=FlavorScore;
 
         SweetnessScore=data.sweetnessScore;
         document.getElementById("Sweetness_Score_Show").innerHTML=SweetnessScore;
-        document.getElementById("Sweetness_Score_Tatol").innerHTML=SweetnessScore;
+        //document.getElementById("Sweetness_Score_Tatol").innerHTML=SweetnessScore;
 
         BodyScore=data.bodyScore;
         document.getElementById("Body_Score_Show").innerHTML=BodyScore;
-        document.getElementById("Body_Score_Tatol").innerHTML=BodyScore;
+        //document.getElementById("Body_Score_Tatol").innerHTML=BodyScore;
 
         TextureScore=data.textureScore;
         document.getElementById("Texture_Score_Show").innerHTML=TextureScore;
-        document.getElementById("Texture_Score_Tatol").innerHTML=TextureScore;
+        //document.getElementById("Texture_Score_Tatol").innerHTML=TextureScore;
 
         AftertasteScore=data.aftertasteScore;
         document.getElementById("Aftertaste_Score_Show").innerHTML=AftertasteScore;
-        document.getElementById("Aftertaste_Score_Tatol").innerHTML=AftertasteScore;
+        //document.getElementById("Aftertaste_Score_Tatol").innerHTML=AftertasteScore;
 
         BalanceScore=data.balanceScore;
         document.getElementById("Balance_Score_Show").innerHTML=BalanceScore;
-        document.getElementById("Balance_Score_Tatol").innerHTML=BalanceScore;
+        //document.getElementById("Balance_Score_Tatol").innerHTML=BalanceScore;
 
         DefectScore=data.defectScore;
         document.getElementById("Defect_Score_Show").innerHTML=DefectScore;
-        document.getElementById("Defect_Score_Tatol").innerHTML=(-DefectScore);
+        //document.getElementById("Defect_Score_Tatol").innerHTML=(-DefectScore);
 
 
         //comment
