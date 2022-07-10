@@ -38,9 +38,8 @@ function list_test(){
                 +'<h4><div class="test_title test_detail_row">品項 : <span class="test_detail_output">'+test.productName+'</span></div>'
                 +'<div class="test_detail_row">批號 : <span class="test_detail_output">'+test.date+'</span></div>'
                 +'<div class="test_detail_row">總分 : <span class="test_detail_output">'+test.score+'</span></div>'
-                +'<div class="test_detail_row">正/負面描述 : </div>'
-                +'<div class="test_detail_row test_detail_comment" style="background-color:#FBF5DF;">'+all_comment(test,1)+'</div>'
-                +'<div class="test_detail_row test_detail_comment" style="background-color:#F1F8FE;">'+all_comment(test,0)+'</div></div></h4>'
+                +'<div class="test_detail_row test_detail_comment" style="background-color:#FBF5DF;">正面描述 : <br>'+all_comment(test,1)+'</div>'
+                +'<div class="test_detail_row test_detail_comment" style="background-color:#F1F8FE;">負面描述 : <br>'+all_comment(test,0)+'</div></div></h4>'
                 +'<div style="display:inline-block; "><canvas id="marksChart_'+temp+'" width="20"></canvas></div></div>'
                 +'<div><a href="cupping.html?test='+temp+'"><span class="change_test">編輯</span></a><span class="change_test" onclick="delete_test('+temp+')">刪除</span></div></div>';
                 
@@ -82,6 +81,7 @@ function list_test(){
 
     
     mes+='<div class="box button_type" onclick="add_new_test('+(count+1)+')">增加評鑑項目</div>';
+    mes+='<div class="box button_type" onclick="send_DB()">送出評鑑結果</div>';
 
     document.getElementById("container").innerHTML=mes;
 
