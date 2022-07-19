@@ -158,7 +158,7 @@ function all_comment(data,type){
         commentArr=(data.aromaNegative).concat(data.flavorNegative,data.sweetnessNegative,data.bodyNegative,data.textureNegative,data.aftertasteNegative,data.balanceNegative,test.defectNegative);
     }
 
-    window.alert(commentArr);
+    //window.alert(commentArr);
     //window.alert(data.balanceNegative);
 
     for(var a=0;a<commentArr.length;a++){
@@ -200,7 +200,7 @@ function comment_detail(comment,m){
 
 function delete_test(key){
 
-    window.alert(key);
+    //window.alert(key);
 
     localStorage.removeItem("milktest "+key);
     list_test();
@@ -272,6 +272,34 @@ function add_new_test(new_test_id){
     localStorage.setItem("milktest " + parseInt(new_test_id), "unset");
     //localStorage.setItem("milktest " + parseInt(new_test_id), JSON.stringify(json_text));
     list_test();
+
+}
+
+
+
+
+function send_DB(){
+
+
+    var long = localStorage.length;
+
+    var count=0,t_key="";
+
+    for (var a = 0; a < long; a++){
+
+        if ((localStorage.key(a)).startsWith('milktest')) {
+
+            t_key=localStorage.key(a);
+
+            temp=t_key.substring(9);
+
+            
+
+            data[t_key]=localStorage.getItem(t_key);
+
+        }
+
+    }
 
 }
 

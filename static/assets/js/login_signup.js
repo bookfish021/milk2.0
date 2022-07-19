@@ -50,7 +50,7 @@ function create_account(){
  
     
     new_mail=document.getElementById("sign_mail").value;
-    window.alert(new_mail);
+    //window.alert(new_mail);
     if(new_mail!="" & new_mail.search(emailRule)== -1){
 
         document.getElementById("sign_mail").style.border="2px solid #f47373";
@@ -102,23 +102,8 @@ function verify_expert(event){
 function check_legitimate(){
 
 
-    /* 資料是否重疊合法 */
-
-
-
-
-
     mes="";
 
-    
-    /*
-    mes=new_name+mes;
-    document.getElementById("user_name").innerHTML=mes;
-    document.getElementById("user_phone").innerHTML=new_phone;
-    document.getElementById("user_password").innerHTML=new_password;
-    document.getElementById("user_mail").innerHTML=new_mail;
-    
-    */
 
     mes='<div class="d_check">姓名 : <span class="check_display">'+new_name+'</span>';
 
@@ -151,14 +136,6 @@ function check_legitimate(){
     document.getElementById("signup").style.display="none";
 
 
-    
-
-
-    /*
-    document.getElementById("signup").style.display="none";
-    document.getElementById("login").style.display="flex";
-    */
-
 }
 
 function rewrite(){
@@ -169,38 +146,152 @@ function rewrite(){
 
 function create(){
 
+    var role="normal";
+
+    if(expert==1){
+        role="expert";
+    }
+
 
     var json_text={
 
-        "productName": namec,
-        "name":new_name,
+        
+        "username":new_name,
         "account":new_phone,
         "password":new_password,
-        "role":expert,
-        "store":new_store,
-        "mail":new_mail
+        "role":role,
+        //"store":new_store,
+        //"mail":new_mail
     };
+
+
 
     JSON.stringify(json_text);
 
     /* 資料庫更新 */
+    $.ajax({
+        url: "https://eva-dev.bettermilk.com.tw/user/register",
+        type: "POST",
+        data : JSON.stringify(json_text),
+        dataType: "json",
+        contentType: "application/json; charset=utf-8",
+       
+        success: function(data){
+            console.log(data);
+            window.alert('註冊成功');
 
-    document.getElementById("double_check").style.display="none";
+            document.getElementById("double_check").style.display="none";
 
-    document.getElementById("login").style.display="flex";
+            document.getElementById("login").style.display="flex";
+
+
+        },
+        
+        error: function(){
+            window.alert('帳號(手機) 已被註冊過');    
+            
+            document.getElementById("double_check").style.display="none";
+
+            document.getElementById("signup").style.display="flex";
+
+        }
+    });
+
+    
 
 
 }
 
 //show two Options
+
 function two_way(){
 
-    window.location.href = "two_ways.html";
+
+    account=document.getElementById("log_account").value;
+    password=document.getElementById("log_password").value;
+
+
+    var json_text={
+        "account":account,
+        "password":password
+    };
+
+    JSON.stringify(json_text);
+
+
+    $.ajax({
+        url: "https://eva-dev.bettermilk.com.tw/session/login",
+        type: "POST",
+        data : JSON.stringify(json_text),
+        dataType: "json",
+        contentType: "application/json; charset=utf-8",
+        
+       
+        success: function(data){
+            //console.log(data);
+            //window.alert(data);
+
+            //test=JSON.parse(data);
+
+            /*將jwt存起來*/ 
+            localStorage.setItem("milk_jwt", data);
+
+            window.location.href = "two_ways.html";
+
+        },
+        
+        error: function(){
+            window.alert('登入失敗');    
+            
+
+        }
+    });
 
    
 }
 
 
+
+/*
+function two_way(){
+
+    
+
+
+    var json_text={
+        "limit":10,
+        "skip":0
+      };
+
+    
+
+
+    //alert(typeof select_range[0])
+    console.log(
+        JSON.stringify(json_text)  // 序列化成 JSON 字串
+    );
+    //document.getElementById("menu").innerHTML="";
+    
+    $.ajax({
+        url: "https://eva-dev.bettermilk.com.tw/user/list",
+        type: "POST",
+        data : JSON.stringify(json_text),
+        dataType: "json",
+        contentType: "application/json; charset=utf-8",
+       
+        success: function(data){
+            console.log(data);
+        },
+        
+        error: function(){
+        window.alert('uh oh :(');        
+        }
+    });
+    
+    
+    
+}
+*/
 
 
 
