@@ -7,6 +7,16 @@ var new_password="";
 var new_mail="";
 
 
+function start(){
+
+    new_store="";
+    new_name="";
+    new_phone="";
+    new_password="";
+    new_mail="";
+
+}
+
 function new_account(){
    
     document.getElementById("login").style.display="none";
@@ -58,6 +68,7 @@ function create_account(){
 
         return 0;
     }
+    else{new_mail="";}
 
     
 
@@ -146,6 +157,8 @@ function rewrite(){
 
 function create(){
 
+    //window.alert(new_mail);
+
     var role="normal";
 
     if(expert==1){
@@ -160,12 +173,15 @@ function create(){
         "account":new_phone,
         "password":new_password,
         "role":role,
-        //"store":new_store,
-        //"mail":new_mail
+        "store":new_store,
+        "email":new_mail
+
+
     };
 
 
 
+    window.alert(JSON.stringify(json_text));
     JSON.stringify(json_text);
 
     /* 資料庫更新 */
@@ -296,4 +312,4 @@ function two_way(){
 
 
 //run the function start when the web load
-//window.addEventListener("load", start, false)
+window.addEventListener("load",start, false);

@@ -15,8 +15,12 @@ form{
 .account{
 
     cursor: pointer;
-    color:#f47373;
+    color:#a4b8d1;
     margin-left: 15px;
+}
+
+.account:hover{
+    color:#0e2849;
 }
 
 
@@ -86,9 +90,9 @@ form{
     text-align: center;
 
     width: 92%;
-    border: 2px solid #f47373;
+    border: 2px solid #a4b8d1;
     outline: none;
-    background: #f47373;
+    background: #a4b8d1;
     padding: 10px;
     border-radius: 10px;
     font-size: 1em;
@@ -148,9 +152,9 @@ form{
     text-align: center;
 
     width: 50%;
-    border: 2px solid #f47373;
+    border: 2px solid #0e2849;
     outline: none;
-    background: #f47373;
+    background: #0e2849;
     padding: 5px;
     border-radius: 10px;
     font-size: 1em;
@@ -162,7 +166,7 @@ form{
 
 #rewrite{
     cursor: pointer;
-    color: #f47373;
+    color: #0e2849;
 }
 
 #rewrite:hover{
