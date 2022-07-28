@@ -67,7 +67,7 @@ select option:checked{
 .score_display{
 
   height:30px;
-  background-color: #fdf7eb;
+  background-color: #d9dfe8;
 
 }
 
@@ -78,7 +78,7 @@ select option:checked{
   display: flex;
   justify-content:space-between;
 
-  background-color: #fdf7eb;
+  background-color: #d9dfe8;
   width:132px;
   
 

@@ -370,7 +370,7 @@ function test_number(){
     if (localStorage.getItem("milktest "+parseInt(test_id)) != "unset") {
 
         data=localStorage.getItem("milktest "+test_id);
-        window.alert(data);
+        //window.alert(data);
         data=JSON.parse(data);
 
 
@@ -501,18 +501,6 @@ function test_number(){
         
     }
 
-  
-
-    
-
-    
-
-    
-
-    
-
-    
-    
 
 
 }

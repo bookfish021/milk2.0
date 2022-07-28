@@ -1,7 +1,7 @@
 html,body{
 
     scroll-behavior: smooth;
-    background-color: #FBDAD1;  
+    background-color: #0e2849;  
     height: 100%;
     color: #4b4a48;
     
@@ -11,6 +11,7 @@ html,body{
 
 #title_display{
 
+    color:#d9dfe8;
     
     display: flex;
     justify-content: center;
@@ -99,7 +100,9 @@ a{
 
 .button_type:hover{
 
-    background: #f47373;
+    border: 2px solid #0e2849;
+
+    background: #0e2849;
     color:#ffffff;
     font-weight: bolder;
     cursor: pointer;
