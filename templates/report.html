@@ -11,15 +11,24 @@
     
     
     <link rel="stylesheet" type="text/css" href="..\static\assets\css\initial.css">
+    <link rel="stylesheet" type="text/css" href="..\static\assets\css\report_list.css">
 
   </head>
 
   <body>
 
+    <script src = "..\static\assets\js\report_display.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.js"></script>
     
     
     <div id="title_display">
       <h1>鮮乳風味評鑑</h1>
+    </div>
+
+    <div id="select_report_mode">
+      <span class="report_mode">專家評論</span>
+      <span class="report_mode" id="my_mode">我的評論<ul id="my_report"><li>圖表</li><li>條列</li></ul></span>
+        
     </div>
   
     <span id="content">

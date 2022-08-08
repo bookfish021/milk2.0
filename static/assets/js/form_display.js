@@ -32,7 +32,11 @@ function list_test(){
             }
 
             else{
+                //window.alert(test);
+                console.log(test);
                 test=JSON.parse(test);
+
+                
 
                 mes+='<div class="box"><div class="one_test"><div class="test_detail">'
                 +'<h4><div class="test_title test_detail_row">品項 : <span class="test_detail_output">'+test.productName+'</span></div>'
@@ -120,9 +124,9 @@ function list_test(){
                 },
                 scales: {
                     r: {
-                        suggestedMin: 5,
+                        suggestedMin: 0,
                         suggestedMax: 10,
-                        ticks: {stepSize: 1},
+                        ticks: {stepSize: 2},
                         grid: {circular: true,
                             
                         },
@@ -287,19 +291,23 @@ function send_DB(){
 
     for (var a = 0; a < long; a++){
 
-        if ((localStorage.key(a)).startsWith('milktest')) {
+        if ((localStorage.key(a))!=null&&(localStorage.key(a)).startsWith('milktest')) {
 
             t_key=localStorage.key(a);
 
             temp=t_key.substring(9);
-
+            
             
 
-            data[t_key]=localStorage.getItem(t_key);
+            //data[t_key]=localStorage.getItem(t_key);
 
         }
 
+        localStorage.removeItem(t_key);
+
     }
+
+    window.location.href = "two_ways.html";
 
 }
 

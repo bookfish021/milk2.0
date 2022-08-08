@@ -24,6 +24,29 @@
     border: 2px solid #a4b8d1;
 
     
+    border-radius: 25px;
+
+    background-color:#a4b8d1;
+    color: #4b4a48;
+    font-weight: bolder;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    
+}
+
+.wayto:hover {
+
+    border: 2px solid #a4b8d1;
+    background-color: #ffffff;
+    color: #4b4a48;
+    font-weight: bolder;
+    cursor: pointer;
+
+
 }
 
 .button_type{
@@ -42,7 +65,7 @@
 
 .button_type:hover {
 
-    border: 2px solid #0e2849;
+    
     background-color:#0e2849;
     color: #ffffff;
     font-weight: bolder;
@@ -81,6 +104,9 @@ a:active {
     display:inline-flex;
     background-color: #a4b8d1;
     border-radius: 5px;
+
+    color: #ffffff;
+    font-weight: bolder;
     
     margin: 10px;
     width: 100px;

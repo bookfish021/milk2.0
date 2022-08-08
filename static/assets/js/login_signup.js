@@ -181,7 +181,7 @@ function create(){
 
 
 
-    window.alert(JSON.stringify(json_text));
+    //window.alert(JSON.stringify(json_text));
     JSON.stringify(json_text);
 
     /* 資料庫更新 */
