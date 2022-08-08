@@ -1,0 +1,146 @@
+.container{
+    display: flex;
+    justify-content: center; 
+}
+
+.box{
+    text-align:center;
+}
+
+.one_test{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:space-evenly;
+
+}
+
+
+
+
+.test_detail{
+
+
+    align-items: center;
+    justify-items: center;
+    text-align:left;
+    width: 300px  !important ;
+
+    margin: 20px;
+
+}
+
+
+.test_detail_row{
+    margin: 5px;
+    font-weight: 500;
+}
+
+
+.test_detail_output{
+
+    display:inline-flex;
+    justify-content:right;
+    
+    width: 220px;
+    font-weight: bolder;
+}
+
+
+.test_detail_comment{
+
+    padding: 10px;
+    border-radius: 10px;
+
+
+
+}
+
+
+canvas{
+
+    display:inline  !important;
+    height: 300px  !important;
+    width: 300px  !important ;
+}
+
+
+.add_test_button{
+
+    border-radius: 50px;
+
+    text-align:center;
+    padding: 15px;
+    width: fit-content;
+
+    background-color: #fff;
+
+    margin-bottom:10%;
+
+    float: center;
+
+
+}
+
+
+#select_report_mode{
+
+    text-align:center;
+    justify-content:center;
+    margin-bottom: 15px;
+    
+}
+
+
+.report_mode{
+
+    margin: 20px;
+    
+    width: 100px;
+    
+
+    color: white;
+}
+
+
+.report_mode:hover{
+
+    cursor: pointer;
+
+    background-color: #a4b8d1;
+    color: #4b4a48;
+}
+
+
+
+#my_mode{
+
+    position: relative;
+    
+
+    text-align: center;
+
+    
+    
+}
+
+#my_report{
+
+    display: none;
+    padding: 0;
+    width: fit-content;
+    justify-content: center;
+    text-align: center;
+    width: 100px;
+}
+
+
+#my_mode:hover #my_report {
+   
+    background-color:black;
+    text-align: center;
+}
+
+li{
+    list-style: none;
+}
