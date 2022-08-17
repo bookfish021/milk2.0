@@ -23,7 +23,7 @@
 
     align-items: center;
     justify-items: center;
-    text-align:left;
+    text-align:right;
     width: 300px  !important ;
 
     margin: 20px;
@@ -51,6 +51,7 @@
 
     padding: 10px;
     border-radius: 10px;
+    text-align: left;
 
 
 
@@ -85,20 +86,39 @@ canvas{
 
 #select_report_mode{
 
+
+    z-index :9999;
+    display: flex;
+    position:relative;
+    justify-content: center;
+    
     text-align:center;
-    justify-content:center;
-    margin-bottom: 15px;
+    
+    margin: 0px 0px 15px 0px !important;
+
+    
+    
+}
+
+#select_report_mode ul{
+
+    list-style:none;
+	position:relative;
+	margin:0;
+	padding:0;
     
 }
 
 
 .report_mode{
 
+    justify-items: center;
     margin: 20px;
-    
     width: 100px;
-    
-
+    height: 20px;
+    border-radius: 5px;
+    float: left;
+	padding:0;
     color: white;
 }
 
@@ -107,19 +127,18 @@ canvas{
 
     cursor: pointer;
 
-    background-color: #a4b8d1;
+    background-color: #D9DFE8;
     color: #4b4a48;
+    
 }
 
 
 
 #my_mode{
 
+    list-style: none;
     position: relative;
-    
-
     text-align: center;
-
     
     
 }
@@ -132,14 +151,28 @@ canvas{
     justify-content: center;
     text-align: center;
     width: 100px;
+
+    background-color: #A4B8D1;
+
+    border-radius: 5px;
 }
 
 
-#my_mode:hover #my_report {
+#my_mode:hover >#my_report {
    
-    background-color:black;
+    display:inline-block;
+    
     text-align: center;
 }
+
+
+.my_report_type:hover {
+
+    background-color: #D9DFE8;
+    font-weight: bolder;
+    border-radius: 5px;
+}
+
 
 li{
     list-style: none;

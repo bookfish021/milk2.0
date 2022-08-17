@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 
-    <link rel="icon" href="..\static\img\牛牛頂奶.png" type="image/x-icon" />
+    <link rel="icon" href="..\static\img\farming_w.jpg" type="image/x-icon" />
     <title>鮮乳風味評鑑</title>
     
     
@@ -26,8 +26,15 @@
     </div>
 
     <div id="select_report_mode">
-      <span class="report_mode">專家評論</span>
-      <span class="report_mode" id="my_mode">我的評論<ul id="my_report"><li>圖表</li><li>條列</li></ul></span>
+      <ul>
+        <li class="report_mode" onclick="expert_report()">專家評論</li>
+        <li class="report_mode" id="my_mode">我的評論
+          <ul id="my_report">
+            <li class="my_report_type" onclick="my_report_chart()">圖表</li>
+            <li class="my_report_type" onclick="my_report_list()">條列</li>
+          </ul>
+        </li>
+      </ul>
         
     </div>
   

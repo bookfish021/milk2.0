@@ -18,78 +18,7 @@ var fack_data={
 function start(){
 
 
-    var mes="";
-    data=fack_data.data;
-
-    for(var a=0;a<data.length;a++){
-
-        test=data[a];
-
-        mes+='<div class="box"><div class="one_test"><div class="test_detail">'
-        +'<h4><div class="test_title test_detail_row">品項 : <span class="test_detail_output">'+test.productName+'</span></div>'
-        +'<div class="test_detail_row">總分 : <span class="test_detail_output">'+test.score+'</span></div>'
-        +'<div class="test_detail_row test_detail_comment" style="background-color:#FBF5DF;">正面描述 : <br>'+all_comment(test,1)+'</div>'
-        +'<div class="test_detail_row test_detail_comment" style="background-color:#F1F8FE;">負面描述 : <br>'+all_comment(test,0)+'</div></div></h4>'
-        +'<div style="display:inline-block; "><canvas id="marksChart_'+a+'" width="20"></canvas></div></div>'
-        +'</div>';
-
-
-    }
-
-    
-
-   
-
-    document.getElementById("container").innerHTML=mes;
-
-
-        /* radar display */
-        for(var a=0;a<data.length;a++){
-
-            temp=a;
-    
-            test=data[a];
-    
-            
-    
-                marksData = {
-                    labels: ["香氣", "風味", "甜感", "體質感", "質地", "餘韻","平衡性"],
-                    datasets: [{
-                      label: test.productName,
-                      backgroundColor: "rgba(200,0,0,0.2)",
-                      data: [test.aromaScore,test.flavorScore,test.sweetnessScore,test.bodyScore,test.textureScore,test.aftertasteScore,test.balanceScore]
-                    }]
-                  };
-        
-                new Chart(document.getElementById("marksChart_"+temp), {
-                    type: 'radar',
-                    data: marksData,
-                    options: {
-                    elements: {
-                        line: {
-                        borderWidth: 3
-                        }
-                    },
-                    scales: {
-                        r: {
-                            suggestedMin: 0,
-                            suggestedMax: 10,
-                            ticks: {stepSize: 2},
-                            grid: {circular: true,
-                                
-                            },
-                            
-                        
-                        }
-                    }
-                    }
-                });
-    
-            
-            
-    
-        }
-
+    //抓三芝API
 
 
 }
@@ -125,7 +54,113 @@ function all_comment(data,type){
 
 
 
+function my_report_chart(){
 
+    //
+
+}
+
+function my_report_list(){
+
+    //
+
+    var mes="";
+    data=fack_data.data;
+
+    mes+='<div class="box"><table><thead><th>評鑑日期</th><th>評鑑項目</th><th>批號</th><th>總分</th>'
+        +'<th>香氣</th><th>風味</th><th>甜感</th><th>體質感</th><th>口感</th><th>餘韻</th><th>平衡性</th><th>瑕疵</th>'
+        +'<th>正面評價</th><th>負面評價</th></thead><tbody>';
+
+    for(var a=0;a<data.length;a++){
+
+        mes+='<tr><th>評鑑日期</th><th>評鑑項目</th><th>批號</th><th>總分</th>'
+        +'<th>香氣</th><th>風味</th><th>甜感</th><th>體質感</th><th>口感</th><th>餘韻</th><th>平衡性</th><th>瑕疵</th>'
+        +'<th>正面評價</th><th>負面評價</th></tr>';
+
+    }
+
+    mes+='</tbody></table></div>';
+
+
+
+
+}
+
+
+function expert_report(){
+
+    //
+    
+    var mes="";
+    data=fack_data.data;
+
+    for(var a=0;a<data.length;a++){
+
+        test=data[a];
+
+        mes+='<div class="box"><div class="one_test"><div class="test_detail">'
+        +'<h4><div class="test_title test_detail_row">品項 : <span class="test_detail_output">'+test.productName+'</span></div>'
+        +'<div class="test_detail_row">總分 : <span class="test_detail_output">'+test.score+'</span></div>'
+        +'<div class="test_detail_row test_detail_comment" style="background-color:#FBF5DF;">正面描述 : <br>'+all_comment(test,1)+'</div>'
+        +'<div class="test_detail_row test_detail_comment" style="background-color:#F1F8FE;">負面描述 : <br>'+all_comment(test,0)+'</div></div></h4>'
+        +'<div style="display:inline-block; "><canvas id="marksChart_'+a+'" width="20"></canvas></div></div>'
+        +'</div>';
+
+
+    }
+
+    
+
+   
+
+    document.getElementById("container").innerHTML=mes;
+
+
+        /* radar display */
+        for(var a=0;a<data.length;a++){
+
+            temp=a;
+    
+            test=data[a];
+    
+                marksData = {
+                    labels: ["香氣", "風味", "甜感", "體質感", "質地", "餘韻","平衡性"],
+                    datasets: [{
+                      label: test.productName,
+                      backgroundColor: "rgba(200,0,0,0.2)",
+                      data: [test.aromaScore,test.flavorScore,test.sweetnessScore,test.bodyScore,test.textureScore,test.aftertasteScore,test.balanceScore]
+                    }]
+                  };
+        
+                new Chart(document.getElementById("marksChart_"+temp), {
+                    type: 'radar',
+                    data: marksData,
+                    options: {
+                    elements: {
+                        line: {
+                        borderWidth: 3
+                        }
+                    },
+                    scales: {
+                        r: {
+                            suggestedMin: 0,
+                            suggestedMax: 10,
+                            ticks: {stepSize: 2},
+                            grid: {circular: true,
+                                
+                            },
+                            
+                        
+                        }
+                    }
+                    }
+                });
+      
+    
+        }
+
+    
+}
 
 
 

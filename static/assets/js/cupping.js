@@ -402,34 +402,42 @@ function test_number(){
         //score
         AromaScore=data.aromaScore;
         document.getElementById("Aroma_Score_Show").innerHTML=AromaScore;
+        document.getElementById("Aroma_Score").value=AromaScore;
         //document.getElementById("Aroma_Score_Tatol").innerHTML=AromaScore;
 
         FlavorScore=data.flavorScore;
         document.getElementById("Flavor_Score_Show").innerHTML=FlavorScore;
+        document.getElementById("Flavor_Score").value=FlavorScore;
         //document.getElementById("Flavor_Score_Tatol").innerHTML=FlavorScore;
 
         SweetnessScore=data.sweetnessScore;
         document.getElementById("Sweetness_Score_Show").innerHTML=SweetnessScore;
+        document.getElementById("Sweetness_Score").value=SweetnessScore;
         //document.getElementById("Sweetness_Score_Tatol").innerHTML=SweetnessScore;
 
         BodyScore=data.bodyScore;
         document.getElementById("Body_Score_Show").innerHTML=BodyScore;
+        document.getElementById("Body_Score").value=BodyScore;
         //document.getElementById("Body_Score_Tatol").innerHTML=BodyScore;
 
         TextureScore=data.textureScore;
         document.getElementById("Texture_Score_Show").innerHTML=TextureScore;
+        document.getElementById("Texture_Score").value=TextureScore;
         //document.getElementById("Texture_Score_Tatol").innerHTML=TextureScore;
 
         AftertasteScore=data.aftertasteScore;
         document.getElementById("Aftertaste_Score_Show").innerHTML=AftertasteScore;
+        document.getElementById("Aftertaste_Score").value=AftertasteScore;
         //document.getElementById("Aftertaste_Score_Tatol").innerHTML=AftertasteScore;
 
         BalanceScore=data.balanceScore;
         document.getElementById("Balance_Score_Show").innerHTML=BalanceScore;
+        document.getElementById("Balance_Score").value=BalanceScore;
         //document.getElementById("Balance_Score_Tatol").innerHTML=BalanceScore;
 
         DefectScore=data.defectScore;
         document.getElementById("Defect_Score_Show").innerHTML=DefectScore;
+        document.getElementById("Defect_Score").value=DefectScore;
         //document.getElementById("Defect_Score_Tatol").innerHTML=(-DefectScore);
 
 
