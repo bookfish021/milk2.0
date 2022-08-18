@@ -16,6 +16,22 @@
 }
 
 
+.list_box{
+
+    height:min-content;
+    width: 1050px;
+    
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 25px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    margin-bottom:10%;
+
+}
 
 
 .test_detail{
@@ -177,3 +193,4 @@ canvas{
 li{
     list-style: none;
 }
+
