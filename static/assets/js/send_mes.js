@@ -5,25 +5,12 @@ function send_message(){
             DefectNegativeShow.unshift(defectform[a]);
         }
     }
-    
-    var json_text={
-        
-        "name" : namec,
-        "date" : datec,
-        "color" : colorc,
-        "score" : final_score,
-        "score_detail":  [AromaScore,FlavorScore,SweetnessScore,BodyScore,TextureScore,AftertasteScore,BalanceScore,DefectScore],
-        "comment" : {
-            "positive" : [AromaPositiveShow,FlavorPositiveShow,SweetnessPositiveShow,BodyPositiveShow,TexturePositiveShow,AftertastePositiveShow,BalancePositiveShow],
-            "negative" :  [AromaNegativeShow,FlavorNegativeShow,SweetnessNegativeShow,BodyNegativeShow,TextureNegativeShow,AftertasteNegativeShow,BalanceNegativeShow,DefectNegativeShow]
-        }
-        
-    };
 
 
     var json_text={
         "productName": namec,
         "date":datec,
+        "userID":localStorage.getItem("milk_ID"),
         "color":colorc,
         "score":final_score,
         "aromaScore":AromaScore,
@@ -52,6 +39,10 @@ function send_message(){
       };
 
     //window.alert(json_text);
+
+    if(localStorage.getItem("milk_event")!=null){
+        json_text['event']=localStorage.getItem("milk_event");
+    }
 
 
 

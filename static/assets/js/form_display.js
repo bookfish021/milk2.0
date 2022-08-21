@@ -240,38 +240,7 @@ function new_cuppings(){
 
 
 function add_new_test(new_test_id){
-
-    var json_text={
-        
-        "productName":"",
-        "date":"",
-        "color":"",
-        "score":0,
-        "aromaScore":0,
-        "flavorScore":0,
-        "sweetnessScore":0,
-        "bodyScore":0,
-        "textureScore":0,
-        "aftertasteScore":0,
-        "balanceScore":0,
-        "defectScore":0,
-        "aromaPositive":[],
-        "flavorPositive":[],
-        "sweetnessPositive":[],
-        "bodyPositive":[],
-        "texturePositive":[],
-        "aftertastePositive":[],
-        "balancePositive":[],
-        "aromaNegative":[],
-        "flavorNegative":[],
-        "sweetnessNegative":[],
-        "bodyNegative":[],
-        "textureNegative":[],
-        "aftertasteNegative":[],
-        "balanceNegative":[],
-        "defectNegative":[]
-                
-    };
+ 
 
     localStorage.setItem("milktest " + parseInt(new_test_id), "unset");
     //localStorage.setItem("milktest " + parseInt(new_test_id), JSON.stringify(json_text));
@@ -287,27 +256,73 @@ function send_DB(){
 
     var long = localStorage.length;
 
-    var count=0,t_key="";
+    //var count=0,t_key="";
+
+
+    //是甚麼身分就丟哪個DB
+    var test_url="https://eva-dev.bettermilk.com.tw/normalComments/create";
+
+    if(localStorage.getItem("milk_role")=="expert"){
+        test_url="https://eva-dev.bettermilk.com.tw/expertComments/create";
+    }
+
 
     for (var a = 0; a < long; a++){
 
-        if ((localStorage.key(a))!=null&&(localStorage.key(a)).startsWith('milktest')) {
+        var key_name="";
+        key_name=localStorage.key(a);
 
-            t_key=localStorage.key(a);
 
-            temp=t_key.substring(9);
+
+        //是牛奶品鑑
+        if (key_name != null && key_name.startsWith('milktest')) {
+
             
-            
 
-            //data[t_key]=localStorage.getItem(t_key);
+            //是有填資料的牛奶品鑑
+            if(localStorage.getItem(key_name)!="unset"){
+
+                window.alert(key_name+"進來了");
+
+
+                $.ajax({
+                    url: test_url,
+                    headers: {
+                        "Authorization": localStorage.getItem("milk_token")
+                    },
+                    type: "POST",
+                    tokenFlag: true,
+                    data : JSON.stringify(localStorage.getItem(key_name)),
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    
+                
+                    success: function(){
+                                                
+                        window.alert(key_name+"ok");
+    
+                        //window.location.href = "two_ways.html";
+    
+                    },
+                    
+                    error: function(){
+                        window.alert('上傳評論失敗');    
+                        
+    
+                    }
+                });
+
+            }
+
 
         }
 
-        localStorage.removeItem(t_key);
+        localStorage.removeItem(key_name);
 
     }
 
-    window.location.href = "two_ways.html";
+    window.alert("上傳完成");
+    //window.location.href = "two_ways.html";
 
 }
 

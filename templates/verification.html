@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset = "utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+
+    <link rel="icon" href="..\static\img\farming_w.jpg" type="image/x-icon" />
+    <title>鮮乳風味評鑑</title>
+    
+    <link rel="stylesheet" type="text/css" href="..\static\assets\css\initial.css">
+
+    <link rel="stylesheet" type="text/css" href="..\static\assets\css\verify.css">
+  </head>
+
+  <body>
+
+    
+    
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="crossorigin="anonymous"></script>
+    <script src="..\static\assets\js\verify_display.js"></script>
+    
+    
+    
+    <div id="title_display">
+      <h1>鮮乳風味評鑑</h1>
+      <h3>編輯驗證碼</h3>
+    </div>
+  
+    <div id="content">
+      <div class="box" style="width: 400px;">
+
+        <form>
+
+          <div>
+            <h3>新增驗證碼</h3>
+          </div>
+            
+    
+          <div class="input_row">
+            
+            <div id="t">
+            <nav>
+              <a href="#" onclick="verify_type(1)">
+                <b id="vtype_1">專家驗證</b>
+              </a>
+              <a href="#" onclick="verify_type(2)">
+                <b id="vtype_2">活動驗證</b>
+              </a>
+              <span id="sha"></span>
+            </nav>
+            </div>
+          </div>
+
+          <div class="input_row">
+            <span>驗證碼設定</span>
+            <input id="verification" name="name" type="name" required/>
+          </div>
+          
+          <div class="input_row">
+            <span>時間限制</span><br>
+            起始時間<input class="time_set" type="datetime-local" id="start-time" name="meeting-time" placeholder="YYYY/MM/DDhh:mm"><br>
+            結束時間<input class="time_set" type="datetime-local" id="end-time" name="meeting-time" placeholder="YYYY/MM/DDhh:mm">
+          </div>
+    
+          <div id="re_new" class="input_row">
+            <div id="write_v" class="button_type" onclick="add_verify(1)">新增驗證碼</div>
+          </div>
+
+          <div  id="re_detial" style="text-align: center;">
+          <h4><span class="to_list" onclick="list_display()">查看所有驗證碼</span></h4>
+          </div>
+    
+        </form>
+
+
+
+      </div>
+
+
+      <div id="verify_list" class="box"  style="display:none; width: 500px;">
+        <div>
+          <h3>合法驗證碼</h3>
+        </div>
+
+      </div>
+
+    </div>
+    
+    
+  </body>
+  
+</html>

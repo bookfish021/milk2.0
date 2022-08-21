@@ -1,7 +1,7 @@
 html,body{
 
     scroll-behavior: smooth;
-    background-color: #0e2849;  
+    
     height: 100%;
     color: #4b4a48;
     
@@ -16,6 +16,8 @@ html,body{
     display: flex;
     justify-content: center;
     align-items: center;
+
+    flex-direction: column;
     
 }
 

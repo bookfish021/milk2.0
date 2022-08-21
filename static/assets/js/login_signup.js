@@ -5,6 +5,7 @@ var new_name="";
 var new_phone="";
 var new_password="";
 var new_mail="";
+var new_expert="";
 
 
 function start(){
@@ -14,6 +15,10 @@ function start(){
     new_phone="";
     new_password="";
     new_mail="";
+    new_expert="";
+
+
+    renew();
 
 }
 
@@ -76,6 +81,10 @@ function create_account(){
     if(expert==0){
 
         new_expert=document.getElementById("sign_expert").value;
+        if(new_expert!=null||new_expert!=""){
+            expert=1;
+        }
+        /*
         if(new_expert==expert_password){
             expert=1;
 
@@ -83,14 +92,24 @@ function create_account(){
 
             document.getElementById("expert").innerHTML=mes;
         }
+        */
 
     }
+    if(expert==1){
+        new_expert=document.getElementById("sign_expert").value;
+        if(new_expert==null||new_expert==""){
+            expert=0;
+        }
+    }
+
     
     
     check_legitimate();
 
 }
 
+/*暫時用不到了*/
+/*
 function verify_expert(event){
     if(event.key === "Enter"){
 
@@ -108,6 +127,7 @@ function verify_expert(event){
         }
     }
 }
+*/
 
 
 function check_legitimate(){
@@ -159,16 +179,14 @@ function create(){
 
     //window.alert(new_mail);
 
+
+
+
     var role="normal";
 
-    if(expert==1){
-        role="expert";
-    }
-
-
+    //要新增的使用者資訊
     var json_text={
 
-        
         "username":new_name,
         "account":new_phone,
         "password":new_password,
@@ -179,6 +197,28 @@ function create(){
 
     };
 
+
+    if(expert==1){
+
+        role="expert";
+
+        json_text={
+
+            "username":new_name,
+            "account":new_phone,
+            "password":new_password,
+            "role":role,
+            "verificationCode":new_expert,
+            "store":new_store,
+            "email":new_mail
+    
+    
+        };
+
+    }
+
+
+    //"message": "Failed to register, Error: Failed to create user to database, Error: Can not find the verification code in database"
 
 
     //window.alert(JSON.stringify(json_text));
@@ -203,8 +243,10 @@ function create(){
 
         },
         
-        error: function(){
-            window.alert('帳號(手機) 已被註冊過');    
+        error: function(data){
+
+           
+            window.alert('創建失敗 -- 可能是 帳號(手機) 已被註冊過/或驗證碼輸入錯誤(僅專家會發生)');   
             
             document.getElementById("double_check").style.display="none";
 
@@ -244,15 +286,27 @@ function two_way(){
         
        
         success: function(data){
-            //console.log(data);
-            //window.alert(data);
+            
 
             //test=JSON.parse(data);
 
-            /*將jwt存起來*/ 
-            localStorage.setItem("milk_jwt", data);
+            console.log(data);
+            //window.alert(data['token']);
+            //window.alert(data['role']);
 
-            window.location.href = "two_ways.html";
+            /*將使用者資訊存起來*/ 
+            localStorage.setItem("milk_token",  "Bearer "+data['token']);
+            localStorage.setItem("milk_role", data['role']);
+            localStorage.setItem("milk_ID", data['userID']);
+
+            
+            if(data['role']=="admin"){  window.location.href = "verification.html"; }
+            else{
+                window.location.href = "two_ways.html";
+            }
+            
+
+            //
 
         },
         
@@ -266,48 +320,30 @@ function two_way(){
    
 }
 
+//"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmQ2YjY2MTE0OTAxZGRjOWQwYzY0ZWUiLCJyb2xlIjoibm9ybWFsIiwiaWF0IjoxNjYxMDAxMzY5fQ.sAuxM0FSi3qxBm7wx4xfZHpBKkj0K1tO7kbRMeESSR4"
 
 
-/*
-function two_way(){
+function renew(){
 
-    
+    var long = localStorage.length;
 
+    for (var a = 0; a < long; a++){
 
-    var json_text={
-        "limit":10,
-        "skip":0
-      };
+        key=localStorage.key(a);
 
-    
+        if (key!=null && key.match('milk')) {
 
+            localStorage.removeItem(key);
 
-    //alert(typeof select_range[0])
-    console.log(
-        JSON.stringify(json_text)  // 序列化成 JSON 字串
-    );
-    //document.getElementById("menu").innerHTML="";
-    
-    $.ajax({
-        url: "https://eva-dev.bettermilk.com.tw/user/list",
-        type: "POST",
-        data : JSON.stringify(json_text),
-        dataType: "json",
-        contentType: "application/json; charset=utf-8",
-       
-        success: function(data){
-            console.log(data);
-        },
-        
-        error: function(){
-        window.alert('uh oh :(');        
         }
-    });
-    
-    
-    
+
+        else{
+            continue;
+        }
+
+    }
+
 }
-*/
 
 
 
