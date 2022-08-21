@@ -17,9 +17,33 @@ var fack_data={
 
 function start(){
 
+    //window.alert(localStorage.getItem("milk_token"));
 
-    //抓三芝API
+    //抓專家綜合評論 
+    /*
+    $.ajax({
+        url: "https://eva-dev.bettermilk.com.tw/result.json",
+        type: "GET",
+        dataType: "json",
+        //contentType: "application/json; charset=utf-8",
+        
+    
+        success: function(data){
+                                    
+            window.alert("ok");
 
+            expert_report(data);
+
+        },
+        
+        error: function(){
+
+            window.alert('專家評論失敗');    
+        
+        }
+    });*/
+
+    
 
 }
 
@@ -64,8 +88,49 @@ function my_report_list(){
 
     //
 
+    var json_text={
+
+        "startDate":"2022-08-17",
+        "endDate":"2022-08-22",
+        "limit":100,
+        "skip":0
+    };
+    
+    var r_data={};
+
+
+    //查看一般評論
+    $.ajax({
+        url: "https://eva-dev.bettermilk.com.tw/normalComments/list",
+        headers: {
+            "Authorization": localStorage.getItem("milk_token")
+        },
+        type: "POST",
+        tokenFlag: true,
+        data : JSON.stringify(json_text),
+        dataType: "json",
+        contentType: "application/json; charset=utf-8",
+        
+    
+        success: function(data){
+                                    
+            window.alert("okOUO");
+
+            r_data=data;
+
+        },
+        
+        error: function(){
+
+            window.alert('查看一般評論失敗');    
+        
+        }
+    });
+
+
     var mes="";
-    data=fack_data.data;
+    //data=JSON.parse(r_data);
+    data=r_data;
 
     mes+='<div class="list_box"><table><thead><th>評鑑日期</th><th>評鑑項目</th><th>批號</th><th>總分</th>'
         +'<th>香氣</th><th>風味</th><th>甜感</th><th>體質感</th><th>口感</th><th>餘韻</th><th>平衡性</th><th>瑕疵</th>'
@@ -90,12 +155,12 @@ function my_report_list(){
 }
 
 
-function expert_report(){
+function expert_report(data){
 
     //
     
     var mes="";
-    data=fack_data.data;
+    //data=fack_data.data;
 
     for(var a=0;a<data.length;a++){
 

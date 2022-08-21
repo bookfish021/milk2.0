@@ -1,0 +1,155 @@
+html,body{
+
+    background-color: #a4b8d1;  
+    
+}
+
+#title_display{
+    color:#4b4a48;
+}
+
+#content{
+    flex-wrap: wrap; 
+}
+
+.box {
+
+    padding: 20px;
+    
+    margin: 15px;
+    
+  }
+
+form{
+    justify-content: center;
+}
+
+.to_list{
+    cursor: pointer;
+    color:#a4b8d1;
+
+}
+
+.to_list:hover{
+    color:#0e2849;
+}
+
+
+.box .input_row {
+    
+    width: 300px;
+    
+    margin: 15px;
+
+}
+
+.time_set{
+    margin: 5px;
+}
+
+
+.box .input_row input {
+    
+    border: 2px solid gray;
+    outline: none;
+    background: none;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 1em;
+  }
+
+.box .input_row span {
+    
+    font-size: 1em;
+    
+    font-family: sans-serif;
+    color: #4b4a48;
+
+  }
+
+  .box .input_row input:focus {
+    border: 2px solid #4b4a48;
+
+  }
+
+
+
+
+
+.button_type{
+
+    text-align: center;
+
+    width: 92%;
+    border: 2px solid #a4b8d1;
+    outline: none;
+    background: #a4b8d1;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 1em;
+    color: white;
+
+}
+
+
+
+
+#t {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+  }
+  
+  nav {
+    position: relative;
+    display: block;
+    background-color: #f6f9ff;
+    padding: 10px;
+    border-radius: 40px;
+    width: 300px;
+    overflow: hidden;
+  }
+  
+  nav a {
+    position: relative;
+    text-decoration: none;
+    color: #53588b;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    line-height: 1;
+    text-align: center;
+    display: inline-block;
+    width: 135px;
+    padding: 10px;
+    box-sizing: border-box;
+    z-index: 2;
+  }
+  
+  nav span {
+    position: absolute;
+    width: 135px;
+    background-color: #e5eeff;
+    top: 10px;
+    bottom: 10px;
+    left: 15px;
+    border-radius: 50px;
+    z-index: 1;
+    transition: 0.3s ease left;
+  }
+  
+  nav a:nth-child(1):hover ~ span {
+    left: 15px;
+  }
+  
+  nav a:nth-child(2):hover ~ span {
+    left: 150px;
+   
+  }
+
+  table td,th{
+    height: 50px;
+  }
+  
+  
+  

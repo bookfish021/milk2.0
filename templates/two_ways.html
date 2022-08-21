@@ -12,8 +12,9 @@
         <link rel="stylesheet" type="text/css" href="..\static\assets\css\initial.css">
       </head>
     
-      <body>
+      <body style="background-color:#0e2849;">
     
+        <script src = "..\static\assets\js\ways.js"></script>
         <script src = "..\static\assets\js\form_display.js"></script>
         <script src = "..\static\assets\js\multiple_test.js"></script>
         <link rel="stylesheet" type="text/css" href="..\static\assets\css\choose_way.css">
@@ -24,16 +25,30 @@
         </div>
   
     <div id="content">
+
+
+      <div id="event_box" style="display:none;">
+
+        <div>活動邀請碼  (沒有活動可以直接略過)</div>
+        <div><input id="event" name="name" type="name" required/></div>
+        <div>
+          <span class="change_test"  onclick="new_cuppings()">略過</span>
+          <span class="change_test" onclick="event_verify()">驗證</span>
+        </div>
+
+      </div>
+
         <div id="choose_way">
 
-            
-          <div id="go_taste" class="wayto" onclick="new_cuppings()">品鑑鮮乳</div>
-            
+          <div id="go_taste" class="wayto" onclick="new_event()">品鑑鮮乳</div>            
           
           <a href="report.html"><div id="see_report" class="wayto" >查看紀錄</div></a>
-          
             
         </div>
+
+        
+
+        
     </div>
     
   </body>
