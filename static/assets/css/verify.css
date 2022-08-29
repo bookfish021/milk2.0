@@ -139,11 +139,11 @@ form{
   }
   
   nav a:nth-child(1):hover ~ span {
-    left: 15px;
+    left: 25px;
   }
   
   nav a:nth-child(2):hover ~ span {
-    left: 150px;
+    left: 250px;
    
   }
 
@@ -151,5 +151,11 @@ form{
     height: 50px;
   }
   
+
+  .tbb:hover{
+
+    cursor: pointer;
+
+  }
   
   

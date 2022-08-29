@@ -89,17 +89,17 @@ function add_verify(mode){
         };
 
         console.log(JSON.stringify(json_text));
-        JSON.stringify(json_text);
+        
 
         /* 新增資料庫 */
         $.ajax({
             url: "https://eva-dev.bettermilk.com.tw/verificationCode/create",
-            type: "POST",
             headers: {
-                "Authorization": toString(localStorage.getItem("milk_token"))
+                "Authorization": localStorage.getItem("milk_token")
             },
-            data : JSON.stringify(json_text),
+            type: "POST",
             tokenFlag: true,
+            data : JSON.stringify(json_text),
             dataType: "json",
             contentType: "application/json; charset=utf-8",
         
@@ -140,7 +140,7 @@ function add_verify(mode){
         $.ajax({
             url: "https://eva-dev.bettermilk.com.tw/verificationCode/update",
             headers: {
-                "Authorization": toString(localStorage.getItem("milk_token"))
+                "Authorization": localStorage.getItem("milk_token")
             },
             type: "PUT",
             tokenFlag: true,
@@ -152,6 +152,7 @@ function add_verify(mode){
 
                 console.log(data);
                 window.alert('更改成功');
+                exit_re();
 
             },
             
@@ -169,6 +170,10 @@ function add_verify(mode){
     
 
     
+        //console.log('check data');
+        sleep(1000);
+   
+    list_verify();
 
 
 }
@@ -194,7 +199,7 @@ function list_verify(){
         type: "POST",
         tokenFlag: true,
         headers: {
-            "Authorization": toString(localStorage.getItem("milk_token"))
+            "Authorization": localStorage.getItem("milk_token")
         },
         data : JSON.stringify(json_text),
         dataType: "json",
@@ -220,12 +225,12 @@ function list_verify(){
 }
 
 
-function list_display(){
+function list_display(data){
 
-    //dd=data.verificationCodes;
+    dd=data.verificationCodes;
     //data=dd;
 
-    data=fack_data.verificationCodes;
+    //data=data.verificationCodes;
 
     document.getElementById("verify_list").style.display="flex";
 
@@ -237,9 +242,9 @@ function list_display(){
         +'<th style="width: 90px;">開始時間</th><th style="width: 90px;">結束時間</th>'
         +'<th style="width: 50px;"></th><th style="width: 50px;"></th></thead><tbody>';
 
-    for(var a=0;a<data.length;a++){
+    for(var a=0;a<dd.length;a++){
 
-        test=data[a];
+        test=dd[a];
 
         var m = new Date(test.startAt);
         var startAt = m.getUTCFullYear() +"/"+ (m.getUTCMonth()+1) +"/"+ m.getUTCDate() + " " + m.getUTCHours() + ":" + m.getUTCMinutes();
@@ -247,7 +252,7 @@ function list_display(){
         var expireAt = m.getUTCFullYear() +"/"+ (m.getUTCMonth()+1) +"/"+ m.getUTCDate() + " " + m.getUTCHours() + ":" + m.getUTCMinutes();
 
         mes+='<tr><th>'+test.content+'</th><th>'+test.usage+'</th><th>'+startAt+'</th><th>'+expireAt+'</th>'
-            +'<th><div id='+a+' onclick="rewrite_verify('+a+')">修改</div></th><th><div id='+test._id+' onclick="delect_verify('+test._id+')">刪除</div></th></tr>';
+            +'<th><div id='+a+' onclick="rewrite_verify('+a+')" class="tbb">修改</div></th><th><div id=d_'+a+' onclick="delect_verify('+a+')" class="tbb">刪除</div></th></tr>';
 
     }
 
@@ -263,7 +268,7 @@ function list_display(){
 
 function rewrite_verify(a){
 
-    dd=fack_data.verificationCodes;
+    
 
     re_id=dd[a]._id;
 
@@ -275,8 +280,8 @@ function rewrite_verify(a){
     if(S_verity=="expert"){shadow.style.left= "15px";}
     if(S_verity=="event"){shadow.style.left= "150px";}
 
-    document.getElementById("start-time").value=dd[a].startAt;
-    document.getElementById("end-time").value=dd[a].expireAt;
+    document.getElementById("start-time").value=(dd[a].startAt).substr(0,16);
+    document.getElementById("end-time").value=(dd[a].expireAt).substr(0,16);
 
     var mes="";
 
@@ -304,20 +309,25 @@ function exit_re(){
     document.getElementById("re_new").innerHTML=mes;
     
     mes="";
-    mes='<h4><span class="to_list" onclick="list_display()">查看所有驗證碼</span></h4>'
+    mes='<h4><span class="to_list" onclick="list_verify()">查看所有驗證碼</span></h4>'
     document.getElementById("re_detial").innerHTML=mes;
 
 }
 
 function delect_verify(test_id){
 
+    var json_text={
+
+        "id":dd[test_id]._id
+    };
+
     $.ajax({
         url: "https://eva-dev.bettermilk.com.tw/verificationCode/delete",
         type: "DELETE",
         headers: {
-            "Authorization": toString(localStorage.getItem("milk_token"))
+            "Authorization": localStorage.getItem("milk_token")
         },
-        data : JSON.stringify({"id":test_id}),
+        data : JSON.stringify(json_text),
         tokenFlag: true,
         dataType: "json",
         contentType: "application/json; charset=utf-8",
@@ -335,4 +345,19 @@ function delect_verify(test_id){
 
         }
     });
+    
+    
+        //console.log('check data');
+    sleep(1000);
+   
+    list_verify();
 }
+
+
+function sleep(milliseconds) { 
+    var start = new Date().getTime(); 
+    while(1)
+        if ((new Date().getTime() - start) > milliseconds)
+            break;
+}
+

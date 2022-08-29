@@ -95,7 +95,7 @@ select option:checked{
 
 .cupping{
   height: 200px;
-  width:132px;
+  width:132px !important;
   border-collapse: separate;
   border-spacing: 0;
   

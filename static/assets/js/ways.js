@@ -10,16 +10,22 @@ function new_event(){
 
 function event_verify(){
 
+    var event_t=document.getElementById("event").value;
+
+    document.getElementById("event").value="";
+
     var json_text={
 
-        "event":document.getElementById("event").value
+        "event":event_t
 
     };
     
-    var r_data={};
+    //var r_data={};
+
+    //window.alert(document.getElementById("event").value);
 
 
-    //查看一般評論
+    //驗證活動邀請碼
     $.ajax({
         url: "https://eva-dev.bettermilk.com.tw/verificationCode/verifyEventCode",
         headers: {
@@ -36,7 +42,9 @@ function event_verify(){
                                     
             window.alert("驗證成功");
 
-            localStorage.setItem("milk_event", data['event']);
+            localStorage.setItem("milk_event", event_t);
+
+            
 
             new_cuppings();
 
