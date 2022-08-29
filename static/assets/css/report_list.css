@@ -1,10 +1,27 @@
 body{
     background-color: #0e2849;  
 }
-.container{
+
+.cont{
     display: flex;
+    width: 100%;
+    flex-direction: row;
     justify-content: center; 
 }
+.select_type{
+
+   
+    text-align: center;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+}
+
+
+
 
 .box{
     text-align:center;
@@ -197,3 +214,69 @@ li{
     list-style: none;
 }
 
+
+#t {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+  }
+  
+  nav {
+    position: relative;
+    display: block;
+    background-color: #f6f9ff;
+    padding: 10px;
+    border-radius: 40px;
+    width: 300px;
+    overflow: hidden;
+  }
+  
+  nav a {
+    position: relative;
+    text-decoration: none;
+    color: #53588b;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    line-height: 1;
+    text-align: center;
+    display: inline-block;
+    width: 135px;
+    padding: 10px;
+    box-sizing: border-box;
+    z-index: 2;
+  }
+  
+  nav span {
+    position: absolute;
+    width: 135px;
+    background-color: #e5eeff;
+    top: 10px;
+    bottom: 10px;
+    left: 15px;
+    border-radius: 50px;
+    z-index: 1;
+    transition: 0.3s ease left;
+  }
+  
+  nav a:nth-child(1):hover ~ span {
+    left: 15px;
+  }
+  
+  nav a:nth-child(2):hover ~ span {
+    left: 150px;
+   
+  }
+
+  table td,th{
+    height: 50px;
+  }
+  
+
+  .tbb:hover{
+
+    cursor: pointer;
+
+  }
+  
+  

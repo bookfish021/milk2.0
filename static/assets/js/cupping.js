@@ -288,6 +288,7 @@ function showDefectScore(){
     //document.getElementById("Defect_Score_Tatol").innerHTML=parseInt(-DefectScore);
 
 
+    showTatolScore();
 }
 
 
@@ -437,7 +438,7 @@ function test_number(){
 
         DefectScore=data.defectScore;
         document.getElementById("Defect_Score_Show").innerHTML=DefectScore;
-        document.getElementById("Defect_Score").value=DefectScore;
+        //document.getElementById("Defect_Score").value=DefectScore;
         //document.getElementById("Defect_Score_Tatol").innerHTML=(-DefectScore);
 
 

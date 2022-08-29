@@ -69,19 +69,9 @@ function list_test(){
 
 
 
-                
-
-
-
-
             }
 
         }
-
-        
-        
-
-    
 
     
     mes+='<div class="box button_type" onclick="add_new_test('+(count+1)+')">增加評鑑項目</div>';
@@ -234,6 +224,7 @@ function new_cuppings(){
 
     }
 
+    localStorage.setItem("milktest 0", "unset");
     window.location.href = "form.html";
 
 }
@@ -282,7 +273,7 @@ function send_DB(){
             //是有填資料的牛奶品鑑
             if(localStorage.getItem(key_name)!="unset"){
 
-                window.alert(key_name+"進來了");
+                //window.alert(localStorage.getItem(key_name));
 
 
                 $.ajax({
@@ -292,7 +283,7 @@ function send_DB(){
                     },
                     type: "POST",
                     tokenFlag: true,
-                    data : JSON.stringify(localStorage.getItem(key_name)),
+                    data : localStorage.getItem(key_name),
                     dataType: "json",
                     contentType: "application/json; charset=utf-8",
                     
@@ -317,14 +308,25 @@ function send_DB(){
 
         }
 
+        sleep(500);
         localStorage.removeItem(key_name);
+        
 
     }
 
+    localStorage.removeItem("milk_event");
     window.alert("上傳完成");
-    //window.location.href = "two_ways.html";
+    window.location.href = "two_ways.html";
 
 }
+
+function sleep(milliseconds) { 
+    var start = new Date().getTime(); 
+    while(1)
+        if ((new Date().getTime() - start) > milliseconds)
+            break;
+}
+
 
 
 

@@ -44,18 +44,18 @@ function create_account(){
     phoneRull=/^09[0-9]{8}$/;
     
     new_phone=document.getElementById("sign_phone").value;
-    if(new_phone==""|new_phone.search(phoneRull)== -1){
+    if(new_phone==""||new_phone.search(phoneRull)== -1){
         document.getElementById("sign_phone").style.border="2px solid #f47373";
         window.alert("手機號碼填寫錯誤");
         return 0;
     }
 
-
+    passwordRull=/^(?![^a-zA-Z] $)(?!\D $)/;
     
     new_password=document.getElementById("sign_password").value;
-    if(new_password==""){
+    if(new_password==""||new_password.search(passwordRull)== -1){
         document.getElementById("sign_password").style.border="2px solid #f47373";
-        window.alert("密碼必填");
+        window.alert("密碼填寫錯誤");
         return 0;
     }
 
@@ -292,13 +292,16 @@ function two_way(){
 
             console.log(data);
             //window.alert(data['token']);
-            //window.alert(data['role']);
+            //window.alert(data['id']);
 
             /*將使用者資訊存起來*/ 
             localStorage.setItem("milk_token",  "Bearer "+data['token']);
             localStorage.setItem("milk_role", data['role']);
-            localStorage.setItem("milk_ID", data['userID']);
+            localStorage.setItem("milk_ID", data['id']);
 
+            //console.log(data['token']);
+
+            
             
             if(data['role']=="admin"){  window.location.href = "verification.html"; }
             else{
