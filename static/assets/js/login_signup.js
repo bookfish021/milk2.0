@@ -9,6 +9,7 @@ var new_expert="";
 
 
 function start(){
+    renew();
 
     new_store="";
     new_name="";
@@ -18,7 +19,7 @@ function start(){
     new_expert="";
 
 
-    renew();
+    
 
 }
 
@@ -299,7 +300,7 @@ function two_way(){
             localStorage.setItem("milk_role", data['role']);
             localStorage.setItem("milk_ID", data['id']);
 
-            //console.log(data['token']);
+            console.log(data['token']);
 
             
             

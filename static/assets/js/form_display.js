@@ -273,7 +273,7 @@ function send_DB(){
             //是有填資料的牛奶品鑑
             if(localStorage.getItem(key_name)!="unset"){
 
-                //window.alert(localStorage.getItem(key_name));
+                window.alert(localStorage.getItem(key_name));
 
 
                 $.ajax({
@@ -308,12 +308,13 @@ function send_DB(){
 
         }
 
-        sleep(500);
-        localStorage.removeItem(key_name);
+        //
+        //localStorage.removeItem(key_name);
         
 
     }
 
+    sleep(500);
     localStorage.removeItem("milk_event");
     window.alert("上傳完成");
     window.location.href = "two_ways.html";

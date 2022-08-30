@@ -2,6 +2,14 @@ var milk_product=["豐樂","A2","小嘉明","大嘉明","幸運兒","許慶良",
 
 
 
+
+var startDate;
+var endDate;
+
+
+
+
+
 var fack_data={
     "data":[
         {"productName":"豐樂","date":"2022-08-17","color":4,"score":21.5,"aromaScore":8.5,"flavorScore":1.5,"sweetnessScore":3,"bodyScore":8.5,"textureScore":0.5,"aftertasteScore":8,"balanceScore":7,"defectScore":10,"aromaPositive":[],"flavorPositive":["風味不錯"],"sweetnessPositive":[],"bodyPositive":[],"texturePositive":[],"aftertastePositive":[],"balancePositive":["平衡優"],"aromaNegative":[],"flavorNegative":[],"sweetnessNegative":[],"bodyNegative":[],"textureNegative":[],"aftertasteNegative":["餘韻差"],"balanceNegative":[],"defectNegative":["塑膠"]},
@@ -52,24 +60,42 @@ function start(){
         }
     });
 
+    
     const today = new Date().getTime();
+
+    count_time(2);
+    endDate=today;
+
+    search_myreport();
+    
+
+}
+
+function search_myreport(){
+
 
     var json_text={
 
-        "startDate":count_time(2),
-        "endDate":today,
+        "startDate":startDate,
+        "endDate":endDate,
         "limit":100,
         "skip":0
     };
 
     //"startDate":count_time(2),"endDate":today,
     //window.alert(count_time(2));
+
+    var test_url="https://eva-dev.bettermilk.com.tw/normalComments/list";
+
+    if(localStorage.getItem("milk_role")=="expert"){
+        test_url="https://eva-dev.bettermilk.com.tw/expertComments/list";
+    }
     
 
 
     //查看自己評論
     $.ajax({
-        url: "https://eva-dev.bettermilk.com.tw/normalComments/list",
+        url: test_url,
         headers: {
             "Authorization": localStorage.getItem("milk_token")
         },
@@ -112,9 +138,6 @@ function start(){
         
         }
     });
-
-    
-
 }
 
 
@@ -247,8 +270,13 @@ function my_report_list(data){
 
         //test=JSON.parse(test);
         //window.alert(test+"a")
+        
+        var m = new Date(test.date);
+        var product_date = m.getUTCFullYear() +"/"+ (m.getUTCMonth()+1) +"/"+ m.getUTCDate();
+        var m = new Date(test.createdAt);
+        var createdAt = m.getUTCFullYear() +"/"+ (m.getUTCMonth()+1) +"/"+ m.getUTCDate();
 
-        mes+='<tr><th>評鑑日期</th><th>'+test.productName+'</th><th>'+test.date+'</th><th>'+test.score+'</th>'
+        mes+='<tr><th>'+createdAt+'</th><th>'+test.productName+'</th><th>'+product_date+'</th><th>'+test.score+'</th>'
             +'<th>'+test.aromaScore+'</th><th>'+test.flavorScore+'</th><th>'+test.sweetnessScore+'</th><th>'+test.bodyScore+'</th>'
             +'<th>'+test.textureScore+'</th><th>'+test.aftertasteScore+'</th><th>'+test.balanceScore+'</th><th>'+test.defectScore+'</th>'
             +'<th>'+all_comment(test,1)+'</th><th>'+all_comment(test,0)+'</th></tr>';
@@ -361,7 +389,7 @@ function count_time(mode){
         duration = 365 / 4 * 24 * 3600 * 1000;
     }
 
-    if(mode==3){ //一個月
+    if(mode==4){ //一個月
         duration = 365 / 12 * 24 * 3600 * 1000;
     }
     
@@ -372,24 +400,51 @@ function count_time(mode){
     pastDay = pastDate.getDate();
     console.debug('过去半年时间', pastYear + '-' + pastMonth + '-' + pastDay)
 
-    return pastDate;
+    for(a=1;a<=5;a++){
+        if(mode==a){
+            document.getElementById("toption_"+a).style.background="#0e2849";
+            document.getElementById("toption_"+a).style.border="#0e2849";
+            document.getElementById("toption_"+a).style.color="#ffffff";
+
+        }
+        else{
+            document.getElementById("toption_"+a).style.border="#A4B8D1";
+            document.getElementById("toption_"+a).style.background="#ffffff";
+            document.getElementById("toption_"+a).style.color="black";
+
+        }
+    }
+
+    document.getElementById("moto_time").style.display="none";
+
+    
+
+    startDate=pastDate.toUTCString();
+    window.alert(startDate);
 }
 
 function my_list(){
+    document.getElementById("sha").style.left= "160px";;
 
     document.getElementById("container_mychart").style.display="none";
 
     document.getElementById("container_expert").style.display="none";
 
     document.getElementById("container_mylist").style.display="flex";
+
+    document.getElementById("select_my_range").style.display="flex";
 }
 
 function my_chart(){
+    document.getElementById("sha").style.left= "22px";
+
     document.getElementById("container_mylist").style.display="none";
 
     document.getElementById("container_expert").style.display="none";
 
     document.getElementById("container_mychart").style.display="flex";
+
+    document.getElementById("select_my_range").style.display="flex";
 }
 
 function expert_chart(){
@@ -399,6 +454,32 @@ function expert_chart(){
     document.getElementById("container_expert").style.display="flex";
 
     document.getElementById("container_mylist").style.display="none";
+
+    document.getElementById("select_my_range").style.display="none";
+    
+
+    document.getElementById("my_mode").style.display="none";
+}
+
+function change_time(){
+
+    document.getElementById("start-time").value=startDate;
+    document.getElementById("end-time").value=endDate;
+    document.getElementById("moto_time").style.display="flex";
+
+
+}
+
+function choosetime(type){
+
+    if(type=="s"){
+        startDate=document.getElementById("start-time").value;
+    }
+
+    else{
+        endDate=document.getElementById("end-time").value;
+    }
+
 }
 
 
