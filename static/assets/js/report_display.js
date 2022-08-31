@@ -31,6 +31,10 @@ var e_data={};
 
 function start(){
 
+
+    document.getElementById("ex_mode").style.background="#D9DFE8";
+    document.getElementById("ex_mode").style.color="#0e2849";
+
     //window.alert(localStorage.getItem("milk_token"));
 
     //抓專家綜合評論 
@@ -70,6 +74,18 @@ function start(){
     
 
 }
+
+function sortByKey(array, key) {
+    return array.sort(function(a, b) {
+        var x = a[key]; var y = b[key];
+        return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+    });
+
+}
+
+
+
+
 
 function search_myreport(){
 
@@ -124,6 +140,9 @@ function search_myreport(){
 
             //data=JSON.stringify(data);
             //console.log(data.length())
+
+            data = sortByKey(data, 'createdAt');
+            //data = JsonSort(data, 'createdAt');
             
             my_report_list(data);
             my_report_chart(data);
@@ -193,8 +212,15 @@ function my_report_chart(data){
         test=data[a];
         //window.alert(test);
 
+        var m = new Date(test.date);
+        var product_date = m.getUTCFullYear() +"/"+ (m.getUTCMonth()+1) +"/"+ m.getUTCDate();
+        var m = new Date(test.createdAt);
+        var createdAt = m.getUTCFullYear() +"/"+ (m.getUTCMonth()+1) +"/"+ m.getUTCDate();
+
         mes+='<div class="box"><div class="one_test"><div class="test_detail">'
-        +'<h4><div class="test_title test_detail_row">品項 : <span class="test_detail_output">'+test.productName+'</span></div>'
+        +'<h4><div class="test_detail_row">評鑑日期 : <span class="test_detail_output">'+createdAt+'</span></div>'
+        +'<div class="test_title test_detail_row">品項 : <span class="test_detail_output">'+test.productName+'</span></div>'
+        +'<div class="test_detail_row">批號 : <span class="test_detail_output">'+product_date+'</span></div>'
         +'<div class="test_detail_row">總分 : <span class="test_detail_output">'+test.score+'</span></div>'
         +'<div class="test_detail_row test_detail_comment" style="background-color:#FBF5DF;">正面描述 : <br>'+all_comment(test,1)+'</div>'
         +'<div class="test_detail_row test_detail_comment" style="background-color:#F1F8FE;">負面描述 : <br>'+all_comment(test,0)+'</div></div></h4>'
@@ -420,7 +446,7 @@ function count_time(mode){
     
 
     startDate=pastDate.toUTCString();
-    window.alert(startDate);
+    //window.alert(startDate);
 }
 
 function my_list(){
@@ -433,6 +459,8 @@ function my_list(){
     document.getElementById("container_mylist").style.display="flex";
 
     document.getElementById("select_my_range").style.display="flex";
+
+    change_mode()
 }
 
 function my_chart(){
@@ -445,6 +473,7 @@ function my_chart(){
     document.getElementById("container_mychart").style.display="flex";
 
     document.getElementById("select_my_range").style.display="flex";
+    change_mode()
 }
 
 function expert_chart(){
@@ -458,7 +487,19 @@ function expert_chart(){
     document.getElementById("select_my_range").style.display="none";
     
 
-    document.getElementById("my_mode").style.display="none";
+    document.getElementById("my_mode").style.background="#0e2849";
+    document.getElementById("my_mode").style.color="white";
+    document.getElementById("ex_mode").style.background="#D9DFE8";
+    document.getElementById("ex_mode").style.color="#0e2849";
+    
+}
+
+function change_mode(){
+    document.getElementById("ex_mode").style.background="#0e2849";
+    document.getElementById("ex_mode").style.color="white";
+    document.getElementById("my_mode").style.background="#D9DFE8";
+    document.getElementById("my_mode").style.color="#0e2849";
+
 }
 
 function change_time(){

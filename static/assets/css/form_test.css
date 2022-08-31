@@ -79,3 +79,24 @@ canvas{
 
 
 }
+
+
+.add_box{
+
+    display: flex;
+    
+    justify-content: center;
+    flex-direction: row;
+    margin-bottom:10%;
+}
+
+
+#add_test_b{
+
+    padding: 15px;
+    
+
+}
+
+
+
