@@ -18,12 +18,18 @@ function list_test(){
     
 
         //window.alert(count);
-        var data=tidy_test(2);
-        for(const [key, value] of Object.entries(data)){
+        var long = localStorage.length;
+
+        for (var a = 0; a < long; a++){
+    
+            key=localStorage.key(a);
+            if (key!=null && key.match('milktest')) {
 
             temp=key.substring(9);
 
             test=localStorage.getItem(key);
+
+            //window.alert(key);
 
             //window.alert(key+":"+test);
 
@@ -72,9 +78,10 @@ function list_test(){
             }
 
         }
-
+    }
     
-    mes+='<div class="box button_type" onclick="add_new_test('+(count+1)+')">增加評鑑項目</div>';
+    mes+='<div class="add_box"><div class="button_type" id="add_test_b" onclick="add_new_test('+(count+1)+')">'
+            +'<span id="add_word">增加評鑑項目</span></div></div><div>';
     mes+='<div class="box button_type" onclick="send_DB()">送出評鑑結果</div>';
 
     document.getElementById("container").innerHTML=mes;
@@ -84,7 +91,12 @@ function list_test(){
 
    
     /* radar display */
-    for(const [key, value] of Object.entries(data)){
+    var long = localStorage.length;
+
+    for (var a = 0; a < long; a++){
+
+        key=localStorage.key(a);
+        if (key!=null && key.match('milktest')) {
 
         temp=key.substring(9);
 
@@ -129,7 +141,7 @@ function list_test(){
 
         }
 
-
+    }
         
 
     }
@@ -215,6 +227,7 @@ function new_cuppings(){
         if (key!=null && key.match('milktest')) {
 
             localStorage.removeItem(key);
+            //window.alert(key);
 
         }
 
@@ -224,7 +237,8 @@ function new_cuppings(){
 
     }
 
-    localStorage.setItem("milktest 0", "unset");
+    localStorage.setItem("milktest 1", "unset");
+    sleep(500);
     window.location.href = "form.html";
 
 }
@@ -273,7 +287,7 @@ function send_DB(){
             //是有填資料的牛奶品鑑
             if(localStorage.getItem(key_name)!="unset"){
 
-                //window.alert(localStorage.getItem(key_name));
+                window.alert(localStorage.getItem(key_name));
 
 
                 $.ajax({
@@ -290,7 +304,7 @@ function send_DB(){
                 
                     success: function(){
                                                 
-                        window.alert(key_name+"ok");
+                        //window.alert(key_name+"ok");
     
                         //window.location.href = "two_ways.html";
     
@@ -308,12 +322,13 @@ function send_DB(){
 
         }
 
-        sleep(500);
-        localStorage.removeItem(key_name);
+        //
+        //localStorage.removeItem(key_name);
         
 
     }
 
+    sleep(500);
     localStorage.removeItem("milk_event");
     window.alert("上傳完成");
     window.location.href = "two_ways.html";
